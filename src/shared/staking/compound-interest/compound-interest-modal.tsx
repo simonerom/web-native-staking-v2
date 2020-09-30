@@ -1,6 +1,6 @@
 /* tslint:disable:no-any */
 // tslint:disable-next-line:import-blacklist
-import { Radio } from "antd";
+import { Button, Radio } from "antd";
 import { t } from "onefx/lib/iso-i18n";
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -71,6 +71,32 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
       visible: false,
     });
   };
+  removeRegister = async () => {
+    const { actionSmartContractCalled } = this.props;
+    try {
+      this.setState({
+        confirmLoading: true,
+      });
+      const txHash = await this.props.contract.unRegisterBucket();
+      window.console.log("unregister compound interest bucket txHash", txHash);
+    } catch (e) {
+      window.console.error(
+        "%c Compound Interest unregister error",
+        "color: blue",
+        e.message
+      );
+    } finally {
+      this.setState({ confirmLoading: false });
+    }
+    if (this.props.requestDismiss) {
+      this.props.requestDismiss();
+    }
+    // @ts-ignore
+    this.setState({
+      visible: false,
+    });
+    actionSmartContractCalled(true);
+  };
 
   onChange = (e: any) => {
     window.console.log("radio checked", e.target.value);
@@ -115,6 +141,31 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
       height: "30px",
       lineHeight: "30px",
     };
+
+    let footer = [
+      <Button key="cancel" onClick={this.handleCancel}>
+        {t("button.cancel")}
+      </Button>,
+      <Button key="submit" type="primary">
+        {t("button.continue")}
+      </Button>,
+    ];
+
+    if (this.props.compoundInterestBucketId !== "-1") {
+      footer = [
+        <Button key="cancel" onClick={this.handleCancel}>
+          {t("button.cancel")}
+        </Button>,
+        <Button key="remove" type="primary" onClick={this.removeRegister}>
+          {t("button.remove.bucket", {
+            bucket: this.props.compoundInterestBucketId,
+          })}
+        </Button>,
+        <Button key="submit" type="primary" onClick={this.onSubmit}>
+          {t("button.continue")}
+        </Button>,
+      ];
+    }
     return (
       // tslint:disable-next-line:use-simple-attributes
       <CommonModal
@@ -123,8 +174,9 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
         visible={forceDisplayModal || this.state.visible}
         onCancel={this.handleCancel}
         onOk={this.onSubmit}
+        footer={footer}
       >
-        <h4>{t("my_stake.select_compound_interest_bucket")}</h4>
+        <h3>{t("my_stake.select_compound_interest_bucket")}</h3>
         <Radio.Group
           onChange={this.onChange}
           value={Number(this.state.bucketIndex)}
@@ -142,7 +194,7 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
                       style={{
                         maxWidth: "9vw",
                         minWidth: 95,
-                        marginLeft: 50,
+                        marginLeft: 40,
                         textAlign: "center",
                       }}
                     >
@@ -153,7 +205,7 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
                       />
                     </span>
                     <span>
-                      <b style={{ whiteSpace: "nowrap", marginLeft: 50 }}>
+                      <b style={{ whiteSpace: "nowrap", marginLeft: 40 }}>
                         {t("my_stake.staking_power.estimate", {
                           total: getPowerEstimationForBucket(item)
                             .dp(1, 1)

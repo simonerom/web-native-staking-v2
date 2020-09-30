@@ -561,4 +561,4 @@ reclaim.sig.desc: Signature Bytes from Ethereum Wallet
 reclaim.sign-and-send: "Reclaim"
 reclaim.click-to-sign: Click here to sign the message
 action.broadcasted: Broadcasted successfully! Please wait for a few seconds and refresh this page to see the result.
-remove: Remove
+button.remove.bucket: 'Remove Current Bucket No.${bucket}'

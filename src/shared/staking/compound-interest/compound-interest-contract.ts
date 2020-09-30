@@ -31,7 +31,7 @@ export class CompoundInterestContract {
 
   async unRegisterBucket(): Promise<string> {
     // tslint:disable-next-line:no-unnecessary-local-variable
-    const bytesResult = await this.contract.methods.unRegister({
+    const bytesResult = await this.contract.methods.unregister({
       gasLimit: DEFAULT_DEPOSIT_BUCKET_GAS_LIMIT,
       gasPrice: toRau("1", "Qev"),
     });
