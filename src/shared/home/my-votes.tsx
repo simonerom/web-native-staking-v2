@@ -1,5 +1,9 @@
+// tslint:disable-next-line:import-blacklist
+import { SettingOutlined } from "@ant-design/icons/lib";
 import PlusOutlined from "@ant-design/icons/PlusOutlined";
 import RedoOutlined from "@ant-design/icons/RedoOutlined";
+// tslint:disable-next-line:import-blacklist
+import { Button } from "antd";
 import Alert from "antd/lib/alert";
 import { t } from "onefx/lib/iso-i18n";
 import Helmet from "onefx/lib/react-helmet";
@@ -11,12 +15,14 @@ import { IopayRequired } from "../common/iopay-required";
 import { colors } from "../common/styles/style-color";
 import { fonts } from "../common/styles/style-font";
 import { VotingButton } from "../home/vote-button-modal";
+import { CompoundInterestBucketModal } from "../staking/compound-interest/compound-interest-modal";
 import { VoteNowContainer } from "../staking/vote-now-steps/vote-now-container";
 import { BucketsLoader } from "./account-meta";
 import { MyVotesTable } from "./my-votes-table";
 
 type State = {
   showVoteNowModal: boolean;
+  showSettingCompoundRateBucket: boolean;
 };
 
 type Props = {};
@@ -37,6 +43,7 @@ export class StakingContractContainer extends Component<Props, State> {
     super(props);
     this.state = {
       showVoteNowModal: false,
+      showSettingCompoundRateBucket: false,
     };
   }
 
@@ -59,6 +66,18 @@ export class StakingContractContainer extends Component<Props, State> {
           </span>
         </VotingButton>
 
+        <Button
+          onClick={() => this.setState({ showSettingCompoundRateBucket: true })}
+          type="primary"
+          size="large"
+          style={{ marginLeft: 4 }}
+        >
+          <span>
+            <SettingOutlined />
+            {t("my_stake.set_compound_interest_bucket")}
+          </span>
+        </Button>
+
         <RefreshButtonStyle onClick={() => this.refreshPage()}>
           <RedoOutlined style={{ marginRight: 4 }} />
           {t("my_stake.refresh_list")}
@@ -71,6 +90,12 @@ export class StakingContractContainer extends Component<Props, State> {
           displayOthers={false}
           forceDisplayModal={this.state.showVoteNowModal}
           requestDismiss={() => this.setState({ showVoteNowModal: false })}
+        />
+        <CompoundInterestBucketModal
+          forceDisplayModal={this.state.showSettingCompoundRateBucket}
+          requestDismiss={() =>
+            this.setState({ showSettingCompoundRateBucket: false })
+          }
         />
       </div>
     );
