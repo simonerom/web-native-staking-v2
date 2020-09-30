@@ -4,8 +4,6 @@ import { t } from "onefx/lib/iso-i18n";
 import { styled } from "onefx/lib/styletron-react";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// @ts-ignore
-import JsonGlobal from "safe-json-globals/get";
 import { getStaking } from "../../server/gateway/staking";
 import { getIoPayAddress, getIotxBalance } from "../common/get-antenna";
 import { getPowerEstimation } from "../common/token-utils";
@@ -97,7 +95,6 @@ type AMProps = {
   readyToWithdraw: string;
   totalVotes: string;
   balance: string;
-  compoundInterestBucket: string;
 };
 
 export const AccountMeta = connect(
@@ -123,7 +120,6 @@ export const AccountMeta = connect(
         pendingUnstaked,
         readyToWithdraw,
         totalVotes,
-        compoundInterestBucket,
       } = this.props;
       return (
         <>
@@ -139,17 +135,6 @@ export const AccountMeta = connect(
           <LabelText>{String(readyToWithdraw)}</LabelText>
           <b>{t("my_stake.votes_amount")}</b>
           <LabelText>{String(totalVotes)}</LabelText>
-          {compoundInterestBucket !== "-1" && (
-            <>
-              <b>{t("my_stake.set_compound_interest_bucket")}</b>
-              <LabelText>
-                {compoundInterestBucket} &nbsp;&nbsp;
-                <span style={{ color: "#00b4a0", cursor: "pointer" }}>
-                  {t("remove")}
-                </span>
-              </LabelText>
-            </>
-          )}
         </>
       );
     }

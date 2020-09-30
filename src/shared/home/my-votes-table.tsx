@@ -632,14 +632,7 @@ class MyVotesTable extends Component<Props, State> {
                   fontSize={"12px"}
                   marginBottom={"24px"}
                 >
-                  {
-                    //@ts-ignore
-                    <AccountMeta
-                      compoundInterestBucketId={
-                        this.state.compoundInterestBucketId
-                      }
-                    />
-                  }
+                  <AccountMeta />
                 </Flex>
               </Flex>
             );
