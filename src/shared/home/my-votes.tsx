@@ -85,31 +85,39 @@ export class StakingContractContainer extends Component<Props, State> {
 
         <CommonMargin />
 
-        <MyVotesTableWrapper />
-        <VoteNowContainer
-          displayOthers={false}
-          forceDisplayModal={this.state.showVoteNowModal}
-          requestDismiss={() => this.setState({ showVoteNowModal: false })}
-        />
-        <CompoundInterestBucketModal
+        <MyVotesTableWrapper
           forceDisplayModal={this.state.showSettingCompoundRateBucket}
           requestDismiss={() =>
             this.setState({ showSettingCompoundRateBucket: false })
           }
         />
+        <VoteNowContainer
+          displayOthers={false}
+          forceDisplayModal={this.state.showVoteNowModal}
+          requestDismiss={() => this.setState({ showVoteNowModal: false })}
+        />
       </div>
     );
   }
 }
-
+type PropsTable = {
+  forceDisplayModal: boolean;
+  // tslint:disable-next-line:no-any
+  requestDismiss(): any;
+};
+// @ts-ignore
 @IopayRequired
 // @ts-ignore
-class MyVotesTableWrapper extends Component {
+class MyVotesTableWrapper extends Component<PropsTable> {
   render(): JSX.Element {
     return (
       <>
         <BucketsLoader />
         <MyVotesTable />
+        <CompoundInterestBucketModal
+          forceDisplayModal={this.props.forceDisplayModal}
+          requestDismiss={this.props.requestDismiss}
+        />
       </>
     );
   }

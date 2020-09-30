@@ -1,16 +1,24 @@
 import BigNumber from "bignumber.js";
 import Antenna from "iotex-antenna/lib";
+import isBrowser from "is-browser";
 import { t } from "onefx/lib/iso-i18n";
 import { styled } from "onefx/lib/styletron-react";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// @ts-ignore
+import JsonGlobal from "safe-json-globals/get";
 import { getStaking } from "../../server/gateway/staking";
 import { getIoPayAddress, getIotxBalance } from "../common/get-antenna";
 import { getPowerEstimation } from "../common/token-utils";
+import { CompoundInterestContract } from "../staking/compound-interest/compound-interest-contract";
 import {
   actionUpdateAccountMeta,
   actionUpdateBuckets,
 } from "./buckets-reducer";
+
+const state = isBrowser && JsonGlobal("state");
+const compoundInterestContractAddr =
+  isBrowser && state.staking && state.staking.compoundInterestContractAddr;
 
 type Props = {
   antenna?: Antenna;
@@ -95,6 +103,7 @@ type AMProps = {
   readyToWithdraw: string;
   totalVotes: string;
   balance: string;
+  compoundInterestBucket: string;
 };
 
 export const AccountMeta = connect(
@@ -112,6 +121,22 @@ export const AccountMeta = connect(
   }
 )(
   class AccountMetaInner extends Component<AMProps> {
+    compoundInterestContract: CompoundInterestContract;
+    state: { bucketId: string } = {
+      bucketId: "-1",
+    };
+
+    async componentDidMount(): Promise<void> {
+      let bucketId = "-1";
+      this.compoundInterestContract = new CompoundInterestContract({
+        contractAddress: compoundInterestContractAddr,
+      });
+      bucketId = await this.compoundInterestContract.queryBucket();
+      this.setState({
+        bucketId: bucketId,
+      });
+    }
+
     render(): JSX.Element | undefined {
       const {
         address,
@@ -135,6 +160,12 @@ export const AccountMeta = connect(
           <LabelText>{String(readyToWithdraw)}</LabelText>
           <b>{t("my_stake.votes_amount")}</b>
           <LabelText>{String(totalVotes)}</LabelText>
+          {this.state.bucketId !== "-1" && (
+            <>
+              <b>{t("my_stake.set_compound_interest_bucket")}</b>
+              <LabelText>{this.state.bucketId}</LabelText>
+            </>
+          )}
         </>
       );
     }

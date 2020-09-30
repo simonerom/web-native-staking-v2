@@ -7,8 +7,8 @@ import { connect } from "react-redux";
 import { IBucket } from "../../../server/gateway/staking";
 import { AddressName } from "../../common/address-name";
 import { CommonModal } from "../../common/common-modal";
-import { IopayRequired } from "../../common/iopay-required";
 import { getPowerEstimationForBucket } from "../../common/token-utils";
+import { actionSmartContractCalled } from "../smart-contract-reducer";
 import { CompoundInterestContract } from "./compound-interest-contract";
 
 type State = {
@@ -22,36 +22,43 @@ type Props = {
   // tslint:disable-next-line:no-any
   requestDismiss(): any;
   dataSource?: Array<IBucket>;
+  contractAddr: string;
+  smartContractCalled: boolean;
+  actionSmartContractCalled(payload: boolean): void;
 };
 
 // @ts-ignore
-@IopayRequired
-// @ts-ignore
 @connect(
-  (state: {
-    buckets: Array<IBucket>;
-    accountMeta: {
-      address: string;
-      totalStaked: string;
-      pendingUnstaked: string;
-      readyToWithdraw: string;
-      totalVotes: string;
-      balance: string;
-    };
-  }) => {
-    return {
-      dataSource: state.buckets || [],
-      accountMeta: state.accountMeta,
-    };
-  }
+  (state) => ({
+    // @ts-ignore
+    dataSource: state.buckets || [],
+    // @ts-ignore
+    contractAddr: state.staking && state.staking.compoundInterestContractAddr,
+    // @ts-ignore
+    smartContractCalled:
+      state.smartContract && state.smartContract.smartContractCalled,
+  }),
+  (disptach) => ({
+    // tslint:disable-next-line:typedef
+    actionSmartContractCalled(payload: boolean) {
+      disptach(actionSmartContractCalled(payload));
+    },
+  })
 )
 export class CompoundInterestBucketModal extends Component<Props, State> {
+  contract: CompoundInterestContract;
+
+  constructor(props: Props) {
+    super(props);
+  }
+
   async componentDidMount(): Promise<void> {
-    window.console.log("start register compound interest bucket txHash");
+    this.contract = new CompoundInterestContract({
+      contractAddress: this.props.contractAddr,
+    });
+
     try {
-      const bucketId = await new CompoundInterestContract({
-        contractAddress: "io108ckwzlzpkhva7cnfceajlu7wu6ql5kq95uat9",
-      }).queryBucket();
+      const bucketId = await this.contract.queryBucket();
       this.setState({ bucketIndex: bucketId });
     } catch (e) {
       window.console.error(
@@ -86,13 +93,12 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
   };
 
   onSubmit = async () => {
+    const { actionSmartContractCalled } = this.props;
     try {
       this.setState({
         confirmLoading: true,
       });
-      const txHash = await new CompoundInterestContract({
-        contractAddress: "io108ckwzlzpkhva7cnfceajlu7wu6ql5kq95uat9",
-      }).registerBucket(this.state.bucketIndex);
+      const txHash = await this.contract.registerBucket(this.state.bucketIndex);
       window.console.log("register compound interest bucket txHash", txHash);
     } catch (e) {
       window.console.error(
@@ -103,6 +109,14 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
     } finally {
       this.setState({ confirmLoading: false });
     }
+    if (this.props.requestDismiss) {
+      this.props.requestDismiss();
+    }
+    // @ts-ignore
+    this.setState({
+      visible: false,
+    });
+    actionSmartContractCalled(true);
   };
 
   render(): JSX.Element {
