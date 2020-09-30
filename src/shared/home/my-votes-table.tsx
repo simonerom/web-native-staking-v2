@@ -38,12 +38,14 @@ const ACCOUNT_AREA_WIDTH = 290;
 type Props = {
   antenna?: Antenna;
   dataSource?: Array<IBucket>;
+  compoundInterestBucketId: string;
 };
 
 type State = {
   invalidNames: string;
   showMore: Record<any, any>;
   address?: string;
+  compoundInterestBucketId: string;
 };
 
 const state = isBrowser && JsonGlobal("state");
@@ -62,7 +64,14 @@ class MyVotesTable extends Component<Props, State> {
       invalidNames: "",
       showMore: {},
       address: "",
+      compoundInterestBucketId: this.props.compoundInterestBucketId,
     };
+  }
+
+  componentWillReceiveProps(): void {
+    this.setState({
+      compoundInterestBucketId: this.props.compoundInterestBucketId,
+    });
   }
 
   setRowClassName = (record: IBucket) => {
@@ -604,7 +613,14 @@ class MyVotesTable extends Component<Props, State> {
                   fontSize={"12px"}
                   marginBottom={"24px"}
                 >
-                  <AccountMeta />
+                  {
+                    //@ts-ignore
+                    <AccountMeta
+                      compoundInterestBucketId={
+                        this.state.compoundInterestBucketId
+                      }
+                    />
+                  }
                 </Flex>
               </Flex>
             );

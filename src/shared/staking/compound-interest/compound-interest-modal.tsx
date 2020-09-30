@@ -9,7 +9,6 @@ import { AddressName } from "../../common/address-name";
 import { CommonModal } from "../../common/common-modal";
 import { getPowerEstimationForBucket } from "../../common/token-utils";
 import { actionSmartContractCalled } from "../smart-contract-reducer";
-import { CompoundInterestContract } from "./compound-interest-contract";
 
 type State = {
   visible: boolean;
@@ -25,6 +24,8 @@ type Props = {
   contractAddr: string;
   smartContractCalled: boolean;
   actionSmartContractCalled(payload: boolean): void;
+  compoundInterestBucketId: string;
+  contract: any;
 };
 
 // @ts-ignore
@@ -34,8 +35,8 @@ type Props = {
     dataSource: state.buckets || [],
     // @ts-ignore
     contractAddr: state.staking && state.staking.compoundInterestContractAddr,
-    // @ts-ignore
     smartContractCalled:
+      // @ts-ignore
       state.smartContract && state.smartContract.smartContractCalled,
   }),
   (disptach) => ({
@@ -46,34 +47,20 @@ type Props = {
   })
 )
 export class CompoundInterestBucketModal extends Component<Props, State> {
-  contract: CompoundInterestContract;
-
   constructor(props: Props) {
     super(props);
+    this.state = {
+      visible: this.props.forceDisplayModal,
+      bucketIndex: this.props.compoundInterestBucketId,
+      confirmLoading: false,
+    };
   }
 
-  async componentDidMount(): Promise<void> {
-    this.contract = new CompoundInterestContract({
-      contractAddress: this.props.contractAddr,
+  componentWillReceiveProps(): void {
+    this.setState({
+      bucketIndex: this.props.compoundInterestBucketId,
     });
-
-    try {
-      const bucketId = await this.contract.queryBucket();
-      this.setState({ bucketIndex: bucketId });
-    } catch (e) {
-      window.console.error(
-        "%c Compound Interest register error",
-        "color: blue",
-        e.message
-      );
-    }
   }
-
-  state: State = {
-    visible: this.props.forceDisplayModal,
-    bucketIndex: "",
-    confirmLoading: false,
-  };
 
   handleCancel = () => {
     if (this.props.requestDismiss) {
@@ -98,7 +85,9 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
       this.setState({
         confirmLoading: true,
       });
-      const txHash = await this.contract.registerBucket(this.state.bucketIndex);
+      const txHash = await this.props.contract.registerBucket(
+        this.state.bucketIndex
+      );
       window.console.log("register compound interest bucket txHash", txHash);
     } catch (e) {
       window.console.error(

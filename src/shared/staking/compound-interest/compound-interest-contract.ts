@@ -45,7 +45,6 @@ export class CompoundInterestContract {
         gasLimit: DEFAULT_DEPOSIT_BUCKET_GAS_LIMIT,
         gasPrice: toRau("1", "Qev"),
       });
-      window.console.log("current compound interest bucket", result.toString());
       return result.toString();
     } catch (e) {
       window.console.log("error", e.toString());
