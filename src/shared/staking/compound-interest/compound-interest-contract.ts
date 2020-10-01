@@ -13,7 +13,7 @@ export class CompoundInterestContract {
     try {
       this.contract = lazyGetContract(contractAddress, COMPOUND_INTEREST_ABI);
     } catch (e) {
-      window.console.error("failed to construct delegate profile contract");
+      window.console.error("failed to compound interest contract contract");
     }
   }
 
