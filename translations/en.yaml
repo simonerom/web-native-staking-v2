@@ -309,6 +309,8 @@ my_stake.bucket_status: 'Bucket Status'
 my_stake.nonDecay: Auto-Stake
 my_stake.new_vote: 'New Stake'
 my_stake.refresh_list: Refresh
+my_stake.set_compound_interest_bucket: Compound Interest Bucket
+my_stake.select_compound_interest_bucket: 'Select a bucket to receipt your compound interest:'
 my_votes.erc20_tab: 'IOTX-E (ERC-20)'
 my_votes.native_tab: 'IOTX'
 my_stake.title: 'My Votes'
@@ -559,3 +561,4 @@ reclaim.sig.desc: Signature Bytes from Ethereum Wallet
 reclaim.sign-and-send: "Reclaim"
 reclaim.click-to-sign: Click here to sign the message
 action.broadcasted: Broadcasted successfully! Please wait for a few seconds and refresh this page to see the result.
+button.remove.bucket: 'Remove Current Bucket No.${bucket}'

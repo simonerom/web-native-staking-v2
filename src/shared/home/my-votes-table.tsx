@@ -38,12 +38,14 @@ const ACCOUNT_AREA_WIDTH = 290;
 type Props = {
   antenna?: Antenna;
   dataSource?: Array<IBucket>;
+  compoundInterestBucketId: string;
 };
 
 type State = {
   invalidNames: string;
   showMore: Record<any, any>;
   address?: string;
+  compoundInterestBucketId: string;
 };
 
 const state = isBrowser && JsonGlobal("state");
@@ -62,7 +64,14 @@ class MyVotesTable extends Component<Props, State> {
       invalidNames: "",
       showMore: {},
       address: "",
+      compoundInterestBucketId: this.props.compoundInterestBucketId,
     };
+  }
+
+  componentWillReceiveProps(): void {
+    this.setState({
+      compoundInterestBucketId: this.props.compoundInterestBucketId,
+    });
   }
 
   setRowClassName = (record: IBucket) => {
@@ -163,7 +172,11 @@ class MyVotesTable extends Component<Props, State> {
   };
 
   // tslint:disable-next-line:max-func-body-length
-  renderMobileTable = (item: IBucket, bpCandidates: any) => {
+  renderMobileTable = (
+    item: IBucket,
+    bpCandidates: any,
+    compoundInterestBucketId: string
+  ) => {
     const no = String(item.index);
     const badgeRow = item.selfStakingBucket ? "BadgeRow" : "";
 
@@ -173,6 +186,11 @@ class MyVotesTable extends Component<Props, State> {
     }
     if (isBurnDrop(item)) {
       badges.push(<StakeTag text={t("my_stake.burn-drop")} />);
+    }
+    if (item.index === Number(compoundInterestBucketId)) {
+      badges.push(
+        <StakeTag text={t("my_stake.set_compound_interest_bucket")} />
+      );
     }
     const hasBadges = badges.length > 0;
     const candidateInfo = bpCandidates[item.canName];
@@ -293,6 +311,7 @@ class MyVotesTable extends Component<Props, State> {
   render(): JSX.Element {
     const bpCandidates: any = [];
     const { dataSource } = this.props;
+    const { compoundInterestBucketId } = this.state;
 
     // @ts-ignore
     const DisplayMyStakeCols = (bpCandidates: any): Array<any> =>
@@ -313,6 +332,11 @@ class MyVotesTable extends Component<Props, State> {
             }
             if (isBurnDrop(record)) {
               badges.push(<StakeTag text={t("my_stake.burn-drop")} />);
+            }
+            if (record.index === Number(compoundInterestBucketId)) {
+              badges.push(
+                <StakeTag text={t("my_stake.set_compound_interest_bucket")} />
+              );
             }
             const hasBadges = badges.length > 0;
             const candidateInfo = bpCandidates[record.canName];
@@ -590,7 +614,11 @@ class MyVotesTable extends Component<Props, State> {
                       {dataSource &&
                         dataSource.length > 0 &&
                         dataSource.map((item) => {
-                          return this.renderMobileTable(item, bpCandidates);
+                          return this.renderMobileTable(
+                            item,
+                            bpCandidates,
+                            compoundInterestBucketId
+                          );
                         })}
                     </div>
                   )}

@@ -38,6 +38,7 @@ module.exports = {
     },
     staking: {
       delegateProfileContractAddr: "io1lfl4ppn2c3wcft04f0rk0jy9lyn4pcjcm7638u",
+      compoundInterestContractAddr: "io108ckwzlzpkhva7cnfceajlu7wu6ql5kq95uat9",
     },
   },
   analytics: {

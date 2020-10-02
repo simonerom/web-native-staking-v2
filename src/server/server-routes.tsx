@@ -77,6 +77,11 @@ export function setServerRoutes(server: MyServer): void {
     ctx.setState("base.iotexCore", config.get("iotexCore"));
     ctx.setState("base.webBp", config.get("webBp"));
     ctx.setState("base.easterHeight", config.get("easterHeight"));
+    ctx.setState(
+      "staking.compoundInterestContractAddr",
+      // @ts-ignore
+      server.config.gateways.staking.compoundInterestContractAddr
+    );
     await setAllCandidates(ctx);
     checkingAppSource(ctx);
     ctx.body = await apolloSSR(ctx, {
