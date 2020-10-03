@@ -146,7 +146,7 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
       <Button key="cancel" onClick={this.handleCancel}>
         {t("button.cancel")}
       </Button>,
-      <Button key="submit" type="primary">
+      <Button key="submit" type="primary" onClick={this.onSubmit}>
         {t("button.continue")}
       </Button>,
     ];
