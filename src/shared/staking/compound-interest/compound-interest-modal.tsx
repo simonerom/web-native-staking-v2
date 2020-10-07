@@ -183,7 +183,7 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
         >
           {dataSource &&
             dataSource.length > 0 &&
-            dataSource.map((item: IBucket, i: number) => {
+            dataSource.filter((item: IBucket) => item.autoStake).map((item: IBucket, i: number) => {
               const no = String(item.index);
               return (
                 <Radio key={i} style={radioStyle} value={item.index}>
