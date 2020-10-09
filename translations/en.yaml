@@ -562,3 +562,5 @@ reclaim.sign-and-send: "Reclaim"
 reclaim.click-to-sign: Click here to sign the message
 action.broadcasted: Broadcasted successfully! Please wait for a few seconds and refresh this page to see the result.
 button.remove.bucket: 'Remove Current Bucket No.${bucket}'
+my_stake.compound_modal.content: 'You may choose to automatically re-stake your staking rewards by defining a “compound interest bucket”. This bucket will receive all staking rewards (from Hermes Delegates only) to maximize compound interest for users.'
+my_stake.compound_modal.note: 'Note: your compound interest bucket must have Auto-stake ON.'
