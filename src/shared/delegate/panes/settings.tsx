@@ -7,13 +7,21 @@ import { Button } from "../../common/button";
 import { CommonMargin } from "../../common/common-margin";
 import { Flex } from "../../common/flex";
 
-const Settings = connect((state: { base: { eth: string } }) => ({
-  eth: state.base.eth
-}))(
-  class SettingsInner extends PureComponent<{ eth: string }> {
+const Settings = connect(
+  (state: { base: { eth: string; userIoAddress: string | undefined } }) => ({
+    eth: state.base.eth,
+    userIoAddress: state.base.userIoAddress,
+  })
+)(
+  class SettingsInner extends PureComponent<{
+    eth: string;
+    userIoAddress: string | undefined;
+  }> {
     render(): ReactNode {
-      const { eth } = this.props;
-      const addr = eth
+      const { eth, userIoAddress } = this.props;
+      const addr = userIoAddress
+        ? userIoAddress
+        : eth
         ? fromBytes(Buffer.from(String(eth).replace(/^0x/, ""), "hex")).string()
         : "";
 
@@ -25,8 +33,8 @@ const Settings = connect((state: { base: { eth: string } }) => ({
               dangerouslySetInnerHTML={{
                 __html: t("profile.settings.content", {
                   ioAddress: addr,
-                  ethAddress: eth
-                })
+                  ethAddress: eth,
+                }),
               }}
             />
           }

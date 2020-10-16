@@ -9,7 +9,10 @@ import * as React from "react";
 import { setApiGateway } from "../api-gateway/api-gateway";
 import { AppContainer } from "../shared/app-container";
 import { apolloSSR } from "../shared/common/apollo-ssr";
-import { setIdentityProviderRoutes } from "../shared/onefx-auth-provider/identity-provider/identity-provider-handler";
+import {
+  getIotxbyEth,
+  setIdentityProviderRoutes,
+} from "../shared/onefx-auth-provider/identity-provider/identity-provider-handler";
 import { Staking } from "./gateway/staking";
 import { MyServer } from "./start-server";
 
@@ -55,6 +58,7 @@ export function setServerRoutes(server: MyServer): void {
       ctx.setState("base.iotexCore", config.get("iotexCore"));
       ctx.setState("base.webBp", config.get("webBp"));
       ctx.setState("base.eth", user!.eth);
+      ctx.setState("base.userIoAddress", getIotxbyEth(user!.eth));
       ctx.setState("base.next", ctx.query.next);
       ctx.setState("base.apiToken", ctx.state.jwt);
       await setAllCandidates(ctx);

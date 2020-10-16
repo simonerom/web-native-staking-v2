@@ -1,5 +1,5 @@
 import { Account } from "iotex-antenna/lib/account/account";
-import { fromString } from "iotex-antenna/lib/crypto/address";
+import {fromBytes, fromString} from "iotex-antenna/lib/crypto/address";
 import { Context } from "onefx/lib/types";
 import { v4 as uuidv4 } from "uuid";
 import ethToIotx from "../../../../config/eth-to-iotx.json";
@@ -13,17 +13,30 @@ const ethByIotx: Record<string, string> = (ethToIotx || []).reduce(
   {}
 );
 
+const iotxByEth: Record<string, string> = (ethToIotx || []).reduce(
+  (pre: Record<string, string>, cur: { eth: string; iotx: string }) => {
+    const eth = cur.eth.toLowerCase();
+    pre[eth] = cur.iotx.toLowerCase();
+    return pre;
+  },
+  {}
+);
+
+export function getIotxbyEth(eth: string): string {
+  return iotxByEth[eth] || fromBytes(Buffer.from(String(eth).replace(/^0x/, ""), "hex")).string();
+}
+
 // tslint:disable-next-line
 export function setIdentityProviderRoutes(server: MyServer): void {
   // API routes
   server.get("logout", "/logout", server.auth.logout);
 
-  server.post("api-sign-in-meta", "/api/sign-in/meta", async ctx => {
+  server.post("api-sign-in-meta", "/api/sign-in/meta", async (ctx) => {
     const nonce = uuidv4();
     ctx.session.nonce = nonce;
     ctx.response.body = {
       message: "sign in",
-      nonce
+      nonce,
     };
   });
 
@@ -45,18 +58,14 @@ export function setIdentityProviderRoutes(server: MyServer): void {
           ok: false,
           error: {
             code: "auth/failed_to_login",
-            message: ctx.t("auth/failed_to_login")
-          }
+            message: ctx.t("auth/failed_to_login"),
+          },
         };
         return;
       }
       const rec = String(recovered).toLowerCase();
       // check mappings first and then convert by ourselves
-      const eth =
-        ethByIotx[rec] ||
-        fromString(rec)
-          .stringEth()
-          .toLowerCase();
+      const eth = ethByIotx[rec] || fromString(rec).stringEth().toLowerCase();
       let user = await server.auth.user.getByEth(eth);
       if (!user) {
         // sign up
