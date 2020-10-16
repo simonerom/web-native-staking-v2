@@ -146,7 +146,7 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
       <Button key="cancel" onClick={this.handleCancel}>
         {t("button.cancel")}
       </Button>,
-      <Button key="submit" type="primary">
+      <Button key="submit" type="primary" onClick={this.onSubmit}>
         {t("button.continue")}
       </Button>,
     ];
@@ -177,46 +177,51 @@ export class CompoundInterestBucketModal extends Component<Props, State> {
         footer={footer}
       >
         <h3>{t("my_stake.select_compound_interest_bucket")}</h3>
+        <p>{t("my_stake.compound_modal.content")}</p>
+        <p>{t("my_stake.compound_modal.note")}</p>
         <Radio.Group
           onChange={this.onChange}
           value={Number(this.state.bucketIndex)}
+          style={{ marginTop: 20 }}
         >
           {dataSource &&
             dataSource.length > 0 &&
-            dataSource.map((item: IBucket, i: number) => {
-              const no = String(item.index);
-              return (
-                <Radio key={i} style={radioStyle} value={item.index}>
-                  <span style={{ display: "inline-flex" }}>
-                    <span>{t("my_stake.order_no", { no })}</span>
-                    <span
-                      className="ellipsis-text"
-                      style={{
-                        maxWidth: "9vw",
-                        minWidth: 95,
-                        marginLeft: 40,
-                        textAlign: "center",
-                      }}
-                    >
-                      {/* tslint:disable-next-line:use-simple-attributes */}
-                      <AddressName
-                        address={item.canName || item.candidate}
-                        className={"StakingLink"}
-                      />
+            dataSource
+              .filter((item: IBucket) => item.autoStake)
+              .map((item: IBucket, i: number) => {
+                const no = String(item.index);
+                return (
+                  <Radio key={i} style={radioStyle} value={item.index}>
+                    <span style={{ display: "inline-flex" }}>
+                      <span>{t("my_stake.order_no", { no })}</span>
+                      <span
+                        className="ellipsis-text"
+                        style={{
+                          maxWidth: "9vw",
+                          minWidth: 95,
+                          marginLeft: 40,
+                          textAlign: "center",
+                        }}
+                      >
+                        {/* tslint:disable-next-line:use-simple-attributes */}
+                        <AddressName
+                          address={item.canName || item.candidate}
+                          className={"StakingLink"}
+                        />
+                      </span>
+                      <span>
+                        <b style={{ whiteSpace: "nowrap", marginLeft: 40 }}>
+                          {t("my_stake.staking_power.estimate", {
+                            total: getPowerEstimationForBucket(item)
+                              .dp(1, 1)
+                              .toLocaleString(),
+                          })}
+                        </b>
+                      </span>
                     </span>
-                    <span>
-                      <b style={{ whiteSpace: "nowrap", marginLeft: 40 }}>
-                        {t("my_stake.staking_power.estimate", {
-                          total: getPowerEstimationForBucket(item)
-                            .dp(1, 1)
-                            .toLocaleString(),
-                        })}
-                      </b>
-                    </span>
-                  </span>
-                </Radio>
-              );
-            })}
+                  </Radio>
+                );
+              })}
         </Radio.Group>
       </CommonModal>
     );
