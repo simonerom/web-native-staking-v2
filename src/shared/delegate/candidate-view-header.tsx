@@ -11,6 +11,8 @@ import Button from "antd/lib/button";
 import Layout from "antd/lib/layout";
 // @ts-ignore
 import window from "global/window";
+import { renderBadges } from "iotex-react-block-producers/lib/bp-render";
+import { assetURL } from "onefx/lib/asset-url";
 import { t } from "onefx/lib/iso-i18n";
 import Helmet from "onefx/lib/react-helmet";
 import { RouteComponentProps } from "onefx/lib/react-router";
@@ -100,20 +102,28 @@ class CandidateProfileViewHeader extends Component<Props, State> {
     this.setState({ showVotingModal: true });
   }
 
-  // tslint:disable-next-line:no-any
-  renderActionButtons(data: any): JSX.Element {
+  renderActionButtons(data: TBpCandidate): JSX.Element {
     return (
-      <Flex column={true} width="138px" media={fullOnPalm}>
+      <Flex
+        column={true}
+        width="138px"
+        media={fullOnPalm}
+        justifyContent={"start"}
+      >
         <Button
           type={"primary"}
           size="large"
-          style={{ width: "100%", height: "81px", marginBottom: "30px" }}
+          style={{ width: "100%", height: "81px", marginBottom: "10px" }}
         >
           {t("delegate.ranking")}
           <br />
           {`#${data.rank || "---"}`}
         </Button>
-
+        {data.badges && data.badges.length > 0 && (
+          <Flex width={"100%"} justifyContent={"flex-end"}>
+            {renderBadges(data.badges, assetURL("bnbridge/hermes.svg"))}
+          </Flex>
+        )}
         <VoteNowContainer
           displayOthers={false}
           forceDisplayModal={this.state.showVotingModal}

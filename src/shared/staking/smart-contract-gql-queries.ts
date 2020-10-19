@@ -35,6 +35,7 @@ export const GET_BP_CANDIDATE = gql`
       rank
       id
       name
+      badges
       blurb
       website
       logo
