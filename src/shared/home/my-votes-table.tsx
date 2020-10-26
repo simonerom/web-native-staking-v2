@@ -187,7 +187,8 @@ class MyVotesTable extends Component<Props, State> {
     if (isBurnDrop(item)) {
       badges.push(<StakeTag text={t("my_stake.burn-drop")} />);
     }
-    if (item.index === Number(compoundInterestBucketId)) {
+
+    if (Number(item.index) === Number(compoundInterestBucketId)) {
       badges.push(
         <StakeTag text={t("my_stake.set_compound_interest_bucket")} />
       );
