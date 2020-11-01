@@ -124,6 +124,7 @@ type Props = {
   showVotingModal(record: Object | null): void;
   isMobile?: boolean;
   isIoPayMobile?: boolean;
+  openApp(): void;
 };
 type State = { showBuyIotx: Boolean; isBlur: Boolean };
 
@@ -184,21 +185,8 @@ class VotingBanner extends Component<Props, State> {
     }
   };
 
-  openDeepLink = () => {
-    const a = document.createElement("a");
-    const tagId = "startIoPay";
-    a.setAttribute("href", "iopay://io.iotex.iopay/open?action=stake");
-    a.setAttribute("id", tagId);
-    if (document.getElementById(tagId)) {
-      // @ts-ignore
-      document.body.removeChild(document.getElementById(tagId));
-    }
-    document.body.appendChild(a);
-    a.click();
-  };
-
   ioPayIsInstall = () => {
-    this.openDeepLink();
+    this.props.openApp();
     setTimeout(() => {
       if (!this.state.isBlur) {
         location.href = "https://iopay.iotex.io";
