@@ -163,14 +163,14 @@ export function getStatus(
   const now = new Date();
   if (withdrawWaitUntil && withdrawWaitUntil > daysLater(new Date(0), 4)) {
     const date = new Date(withdrawWaitUntil);
-    if (date <= now) {
+    if (date <= now && (!stakeStartTime || (stakeStartTime && date > stakeStartTime))) {
       return "withdrawable";
     }
   }
 
   if (unstakeStartTime && unstakeStartTime > daysLater(new Date(0), 4)) {
     const date = new Date(unstakeStartTime);
-    if (date <= now) {
+    if (date <= now && (!stakeStartTime || (stakeStartTime && date > stakeStartTime))) {
       return "unstaking";
     }
   }
