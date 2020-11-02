@@ -55,9 +55,21 @@ export const RestakeModal = connect(
     };
 
     componentDidMount(): void {
+      const now = new Date();
+      let restakeDuration = 0;
+      if (this.props.stakeTime) {
+        const lastDurationTime =
+          (now.getTime() - this.props.stakeTime.getTime()) / (3600 * 24 * 1000);
+        if (lastDurationTime < this.props.stakeDuration) {
+          restakeDuration = Math.ceil(
+            this.props.stakeDuration - lastDurationTime
+          );
+        }
+      }
+
       this.setState({
         currentStakeAmount: this.props.stakedAmount,
-        currentStakeDuration: this.props.stakeDuration,
+        currentStakeDuration: restakeDuration,
       });
     }
 
@@ -114,13 +126,7 @@ export const RestakeModal = connect(
     };
 
     render(): JSX.Element | undefined | boolean {
-      const {
-        clickable,
-        stakeDuration,
-        nonDecay,
-        bucketIndex,
-        stakeTime,
-      } = this.props;
+      const { clickable, nonDecay, bucketIndex, stakeTime } = this.props;
 
       const isAvailable = stakeTime && stakeTime <= new Date();
       const { unMountModalWrapper } = this.state;
@@ -175,7 +181,7 @@ export const RestakeModal = connect(
               {isAvailable && (
                 // @ts-ignore
                 <DurationFormItem
-                  initialValue={stakeDuration}
+                  initialValue={this.state.currentStakeDuration}
                   validatorFactory={validateStakeDuration}
                   formRef={this.formRef}
                   onChange={(n) => this.setState({ currentStakeDuration: n })}
