@@ -4,6 +4,7 @@ import Alert from "antd/lib/alert";
 import Button from "antd/lib/button";
 import Form from "antd/lib/form";
 import { FormInstance } from "antd/lib/form";
+import Radio, { RadioChangeEvent } from "antd/lib/radio";
 import Input from "antd/lib/input";
 import InputNumber from "antd/lib/input-number";
 import notification from "antd/lib/notification";
@@ -17,7 +18,7 @@ import {
   CandidateUpdate,
 } from "iotex-antenna/lib/action/types";
 import { t } from "onefx/lib/iso-i18n";
-import React, { FormEvent, PureComponent, RefObject } from "react";
+import React, { FormEvent, PureComponent, RefObject, useState } from "react";
 import { connect } from "react-redux";
 import { getStaking } from "../../../server/gateway/staking";
 import { ownersToNames } from "../../common/apollo-client";
@@ -26,7 +27,10 @@ import { formItemLayout } from "../../common/form-item-layout";
 import { getIoPayAddress } from "../../common/get-antenna";
 import { IopayRequired } from "../../common/iopay-required";
 import { colors } from "../../common/styles/style-color2";
-import {DEFAULT_STAKING_GAS_LIMIT, HERMES_CONTRACT_ADDRESS} from "../../common/token-utils";
+import {
+  DEFAULT_STAKING_GAS_LIMIT,
+  HERMES_CONTRACT_ADDRESS,
+} from "../../common/token-utils";
 import {
   getStakeDurationMaxValue,
   smallerOrEqualTo,
@@ -256,7 +260,7 @@ const NameRegistrationContainer = IopayRequired(
               <CanNameFormItem candName={candName} />
               <OwnerAddressFormItem />
               <OperatorAddressFormItem />
-              <RewardAddressFormItem formRef={this.updateFormRef}/>
+              <RewardAddressFormItem formRef={this.updateFormRef} />
               <Alert
                 message={
                   // tslint:disable-next-line:react-no-dangerous-html
@@ -362,7 +366,7 @@ const NameRegistrationContainer = IopayRequired(
             <div className="site-layout-content">
               <OwnerAddressFormItem />
               <OperatorAddressFormItem />
-              <RewardAddressFormItem formRef={this.registerFormRef}/>
+              <RewardAddressFormItem formRef={this.registerFormRef} />
               <Form.Item>
                 <p>
                   <b>{t("profile.register_name.submit.desc")}</b>
@@ -515,20 +519,66 @@ const OperatorAddressFormItem = () => {
   );
 };
 
-const RewardAddressFormItem = ({formRef}:{formRef?: RefObject<FormInstance>}) => {
+const RewardAddressFormItem = ({
+  formRef,
+}: {
+  formRef?: RefObject<FormInstance>;
+}) => {
+  const USE_HERMES = "hermes",
+    USE_OWN_ADDR = "ownAddr";
+  const [radioVal, setRadioVal] = useState(USE_HERMES);
+  const onCheckGroupChange = (e: RadioChangeEvent) => {
+    const value = e.target.value;
+    setRadioVal(value);
+    if (formRef && formRef.current) {
+      if (value === USE_HERMES) {
+        formRef.current.resetFields(["rewardAddress"]);
+      } else {
+        formRef.current.setFields([{ name: "rewardAddress", value: "" }]);
+      }
+    }
+  };
   return (
     <>
-      {/*
-                // @ts-ignore */}
+      {/* // @ts-ignore */}
       <Form.Item
         {...formItemLayout}
         labelAlign={"left"}
-        style={{ marginBottom: "3px" }}
+        style={{ marginBottom: "5px" }}
         label={getLabel(
           t("name_regsitration.reward_pub_key"),
           t("name_regsitration.reward_pub_key.explanation")
         )}
+        name="radioVal"
+        required
+      >
+        <Radio.Group
+          onChange={onCheckGroupChange}
+          defaultValue={USE_HERMES}
+          value={radioVal}
+        >
+          <Radio value={USE_HERMES}>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: t("profile.reward-address.use_hermes_checkbox"),
+              }}
+            />
+          </Radio>
+          <Radio value={USE_OWN_ADDR} style={{ marginLeft: 0 }}>
+            {t("profile.reward-address.enter_reward_addr_checkbox")}
+          </Radio>
+        </Radio.Group>
+      </Form.Item>
+
+      {/* // @ts-ignore */}
+      <Form.Item
+        {...formItemLayout}
+        labelAlign={"left"}
+        style={{ marginBottom: "24px" }}
+        className="form-item-clear-star"
+        label={<span />}
         name={"rewardAddress"}
+        initialValue={HERMES_CONTRACT_ADDRESS}
         rules={[
           {
             required: true,
@@ -539,28 +589,7 @@ const RewardAddressFormItem = ({formRef}:{formRef?: RefObject<FormInstance>}) =>
           },
         ]}
       >
-        <Input />
-      </Form.Item>
-      {/*
-                // @ts-ignore */}
-      <Form.Item {...formItemLayout} label={<span />} shouldUpdate={true}>
-        {
-          () => {
-            const rewardAddress = formRef&&formRef.current?formRef.current.getFieldValue("rewardAddress"):"";
-            return <Alert
-              message={
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: rewardAddress===HERMES_CONTRACT_ADDRESS?t("profile.reward-address.used_hermes"):t("profile.reward-address.unset_warning"),
-                  }}
-                />
-              }
-              type={rewardAddress===HERMES_CONTRACT_ADDRESS?"success":"warning"}
-              showIcon={true}
-              banner={true}
-            />
-          }
-        }
+        <Input disabled={radioVal === USE_HERMES} />
       </Form.Item>
     </>
   );

@@ -180,3 +180,5 @@ my_stake.edit.withdraw: 提取赎回
 action.broadcasted: 广播成功！请稍候几秒钟，刷新此页以查看结果。
 delegate.annotate.non-official: '*这不是IoTeX官方节点。'
 button.remove.bucket: '撤销使用No.${bucket}'
+profile.reward-address.use_hermes_checkbox: '使用 Hermes 自动分发奖励给你的投票人。<a target=''_blank'' href=''https://hermes.to/user-guide''>了解更多</a>'
+profile.reward-address.enter_reward_addr_checkbox: '输入你自己的奖励地址'

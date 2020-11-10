@@ -145,3 +145,7 @@ $border-warning: #e44837;
 .table_wrapper__votes_received .ant-table-content {
   overflow-x: auto;
 }
+
+.form-item-clear-star .ant-form-item-required::before {
+  content: "" !important;
+}
