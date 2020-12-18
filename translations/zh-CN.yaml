@@ -1,10 +1,10 @@
 footer.about_us: 关于我们
 footer.announcemenets: 公告
 footer.announcements: 公告
-footer.charity_program: 慈善项目
+footer.charity_program: 慈善计划
 footer.delegates_program: 节点项目
 footer.develop: 发展
-footer.documentations: 文献
+footer.documentations: 文件
 footer.enter_email: 输入电子邮件获取Iotex更新
 footer.explorer: 探索
 footer.forum: 论坛
@@ -25,13 +25,14 @@ meta.description: IoTeX
 meta.description.delegates: 'IoTeX 节点计划'
 meta.title.voting: 节点投票
 meta.title: 节点
-not_found.bar: Not Found
-not_found.info: We cannot find the page for you...
-not_found.title: Oops!
+not_found.bar: 不存在
+not_found.info: 找不到页面...
+not_found.title: 糟糕!
 tools.address_convert: 地址转换
 tools.address_required: 需要地址
 tools.another_eth_addr: 另一个ETH地址
-tools.another_io_addr: 另一个IO地址
+tools.another_io_addr: 另一个IoTeX地址
+tools.balance: 余额
 tools.continue_to_swap: 继续交换
 tools.convert: 兑换
 tools.converted_eth: 您的Eth地址是：
@@ -39,60 +40,71 @@ tools.converted_iotex: 您的IoTeX地址是：
 tools.current_eth_addr: '当前ETH地址：${ethAddress}'
 tools.current_io_addr: '当前IO地址：${ioAddress}'
 tools.distribute: '发放 IOTX/VITA'
-tools.enter_ioaddress_here: 在此输入io地址
-tools.enter_your_trade_hash: 请输入您的交易hash
+tools.enter_ioaddress_here: 在此处输入IoTeX地址
+tools.enter_your_trade_hash: 请输入你的交易哈希
 tools.eth_addr_required: 需要ETH地址
 tools.eth_or_iotex_addr: Eth地址或IoTeX地址
-tools.faucet_info: 'This faucet allows you to request Iotex Testnet to be used on Testnet Ethereum test network This is not real (mainnet) ETH. It has no market value. It is only useful for testing A GitHub account is required to be able to request testnet.'
-tools.faucet_limit: 'Faucet draw rate limit reached. Come back in 24 hours.'
-tools.faucet_success: 'Faucet draw rate reached.'
-tools.faucet_test_net: 'Test Net Faucet'
+tools.faucet_info: '这里允许您申请在IoTeX<a target=''_blank'' href=''https://testnet.iotexscan.io/''> testnet </a>上使用的IOTX通证。这不是真正的IOTX主网币，没有市场价值。 <br/> <br/>为了防止滥用，您需要提供一个Github帐户，每24小时可以申请100个通证。'
+tools.faucet_limit: 达到水龙头限制。请在24小时后回来。
+tools.faucet_success: 达到水龙头限制。
+tools.faucet_test_net: IOTX测试网水龙头
 tools.github_star: 星
-tools.hash_invalid: 您的哈希地址格式不正确
+tools.hash_invalid: 哈希无效
 tools.iotx_balance: IOTX余额：
 tools.iotxe_balance: IOTX-E余额：
+tools.issue_report_tip: '请验证您要报告的转换交易可以在<a href="${href}" target="_blank"> ${address} </a>查询并且状态为：成功。如果交易失败，转换将不会被执行。'
+tools.issue_report_verified: 确保交换失败。
 tools.login_github: 使用Github登录
 tools.mainnet_address: IoTeX主网地址
 tools.mainnet_address_placeholder: io12345693ug8r3zdeysppnyrcdu2xssz0lcam9l9
 tools.mainnet_address_required: 需要IoTeX地址
 tools.mainnet_airdop_stop: 由于检测到可疑活动，我们暂时停止了主网IOTX空投。请留意进一步的空投。感谢您的支持！
 tools.mainnet_info: '欢迎来到IoTeX--以隐私为中心的区块链平台，为可信物联网提供支持。在这里，您可以获得免费的IOTX代币。 <br/> <br/>为防止滥用，需要Github帐户。请在我们的repo中点击星标，并在下面请求令牌。每个Github帐户或IOTX地址只能请求一次。'
-tools.mainnet_limit: 每个Github帐户或IOTX地址只有10个令牌
-tools.mainnet_send: 请发送原生的IOTX！
-tools.mainnet_success: 您已收到10个免费的IOTX原生通证
-tools.mainnet_title: '主网 IOTX 空投'
+tools.mainnet_limit: 每个Github帐户或IOTX地址仅有一次
+tools.mainnet_send: '送我 IOTX！'
+tools.mainnet_success: 我们已经发送了免费的IOTX通证。
+tools.mainnet_title: 主网IOTX空投
+tools.maxEpochCountError: 'Epoch应小于或等于${max}'
 tools.multi_send.approve: 同意
 tools.multi_send.erc20: '批量发送 IOTX/VITA'
 tools.multi_send.iotex: '批量发送 IOTX-E'
 tools.multi_send.multisend: 批量发送
 tools.multi_send.send_type: 发送类型
 tools.multi_send: 批量发送
-tools.no_blank: 该值不能为空
-tools.report_modal_title: 问题报告
-tools.report_tube_problem: 交换失败? 报告该问题
+tools.no_blank: 此字段不能为空
+tools.please_wait: 感谢您反馈问题。我们的团队将仔细检查交易并确保交易在12小时内完成。请等待，并在12个小时内再次检查。谢谢你的耐心！
+tools.report_modal_title: 故障反馈
+tools.report_tube_problem: 交换失败？请反馈问题
 tools.send_failed: 发送失败
-tools.send_iotex_testnet: 'Send me Iotex Testnet!'
+tools.send_iotex_testnet: '送我 IOTX！'
 tools.send_success: 发送成功
 tools.swap_eth_address: '交换到以下 ETH 地址'
-tools.swap_io_address: 切换到以下IO地址
+tools.swap_from: 交换自
+tools.swap_io_address: 交换到以下IoTeX地址
+tools.swap_to: 交换到
 tools.swap_to_iotex: 交换到IOTX
 tools.swap_to_iotex_native: '交换到 IOTX(本地)'
 tools.swap_type: 交换类型
-tools.swapping_to_iotx: 交换到 IOTX(Native)
-tools.swapping_to_iotxe: 交换到 IOTX-E
-tools.test_net_address: 'Testnet 地址'
+tools.swap_v2: 通证交换-v2
+tools.swap_v2_bep2_address: BNB接收地址
+tools.swap_v2_erc20_address: Eth接收地址
+tools.swap_v2_swap: 交换方向
+tools.swap_v2_token: 通证
+tools.swapping_to_iotx: 交换到IOTX（本地）
+tools.swapping_to_iotxe: 交换到IOTX-E
+tools.test_net_address: 测试网地址
 tools.title: 工具
-tools.token_swap: '令牌交换(IoTeX 渠道)'
-tools.us_warning: '对不起. 此服务在您的国家不可用.'
+tools.token_migration: 通证迁移
+tools.token_swap: '通证交换（IoTeX Tube）'
+tools.us_warning: 抱歉。此服务在您所在的位置不可用。
 tools.your_eth: 你的ETH地址：
-tools.your_io: '您的 IO 地址:'
-tools.your_transaction_hash: 您的交易 hash 值
-tools.token_migration: Token 置换更新
+tools.your_io: 你的IoTeX地址
+tools.your_transaction_hash: 您的交易哈希
 topbar.brand: 节点
 topbar.delegate_list: 节点列表
-topbar.faucet: FAUCET
+topbar.faucet: 水龙头
 topbar.giveaway: 赠品
-topbar.home: HOME
+topbar.home: 主页
 topbar.i_am_a_delegate: 节点
 topbar.logout: 退出登录
 topbar.member: 会员
@@ -104,26 +116,67 @@ topbar.staking: 质押
 topbar.support: 帮助
 topbar.vita: VITA
 topbar.voting: 投票
-contract.called: 合同签订成功！请稍候几秒钟，刷新此页以查看结果。
-contract.install: 请安装ioPay桌面版钱包，导入、解锁您的钱包后刷新试试。
+contract.called: 成功！请等待几秒钟，然后刷新此页面以查看结果。
+topbar.poll: 调查
+topbar.tool: 工具
+contract.install: 请使用ioPay桌面，导入并解锁您的钱包，然后刷新此页面以继续。
 contract.please_unlock: 若要继续，请在Metamask中解锁您的钱包
-my_stake.ioAddress.err: 'Invalid IoTeX Address'
-migration.success: You have successfully submitted the migration request. Please wait a while for it to take effects.
+migration.success: 您已经成功提交了迁移请求。请稍等片刻，以使其生效。
+my_stake.ioAddress.err: 无效的IoTeX地址
 voting.tweet.summary.title: IoTeX节点投票已经开启，现在加入!
-voting.tweet.summary.description: '参与1000IOTX投票成为创世会员！ 早期参与赢得30%年化收益，赢得限量版会员大礼包！'
+voting.tweet.summary.description: '投票超过1,000个IOTX-E将成为Genesis选民！抓住机会赚取30％的APR早鸟投票奖励和限量版会员大礼包！'
 voting.tweet.summary.image: 'https://imgc.iotex.io/dokc3pa1x/image/upload/v1552428805/delegates/voting_twitter.png'
 voting.tweet.content: '#VOTING for IoTeX节点现在正在进行中！作为#GenesisVoter， %0a 我投了 ${name} 。到你了！%0a #IoTeXvote #IoTeXdelegate'
+delegate.votesreceived.voter: 投票人
+delegate.votesreceived.token_amount: 数量
+delegate.votesreceived.token_type: 通证
+delegate.votesreceived.iotx: IOTX-E
+delegate.votesreceived.native: IOTX
+delegate.votesreceived.download: 下载所有投票
+delegate.votesreceived.votes: 投票
+delegate.votesreceived.remaining_duration: 剩余质押时间
+delegate.votesreceived.unregister: 您的地址尚未注册
+delegate.rewards: 奖励
+delegate.params: 参数
+delegate.params.reward: 奖励地址
+delegate.params.operator: 运营商地址
+delegate.params.probationHistoricalRate: 试用历史率
+delegate.params.no_registered_name: 节点没有注册名称
+delegate.votesreceived: 收到的选票
+delegate.ranking: 排名
+delegate.vote_share: '投票 & 分享活动'
+delegate.tweet.summary.title: '${delegate} (发微博或者转发即可参与抽奖)'
+delegate.annotate.non-official: '*这不是IoTeX官方节点。'
+user-info.profile: 信息
+user-info.vote: 我的选票
+user-info.help: 帮助
+candidates.community_plan: 社区计划
+candidates.introduction: 说明
+candidates.location: 位置
+candidates.name: 节点名称
+candidates.next_epoch: 下一个Epoch
+candidates.reward_plan: 奖金分配计划
+candidates.social_media: 社会媒体
+candidates.team: 团队
+candidates.tech_setup: 技术支持
+candidates.title: 投票开始倒计时
 voting.progress-bar.circulating.supply: 流通
 voting.buy_iotx: '购买 IOTX'
-voting.metamask-reminder.content: '开始投票前请确保你已经解锁并连接了MetaMask。<a target="_blank" href="https://support.iotex.io/hc/en-us/articles/360020614094">了解更多信息</a>'
+voting.metamask-reminder.content: '继续投票过程，请确保您已解锁MetaMask并链接到IoTeX。 <a target="_blank" href="https://support.iotex.io/hc/en-us/articles/360020614094">了解更多信息 </a>'
+voting.banner_title: 质押IOTX来帮助保护IoTeX网络
+voting.banner_content: 'IoTex 网络由 $[节点计数] 分散委托维护。通过投票选举节点，您可以参与网络治理并获得 IOTX 奖励！'
+voting.banner_content.other_browser: 'IoTeX网络由${delegatesCount}去中心化节点进行维护。通过为您支持的节点投票，您可以参与网络治理并获得IOTX奖励！ <a href="https://community.iotex.io/t/how-to-stake-on-iotex-mainnet-ga/1245?from=from_parent_docs">如何进行抵押和投票- > </a>'
+voting.banner_content.modal: '随着  6 月 1 日上线的Mainnet GA "Machina" 版本， IoTex 现在是一个完全本地的区块链。选民将使用原生IOTX和ioPay（官方的IoTeX钱包）在IoTeX网络上进行质押和投票，而不是IOTX-E（以太坊）和Metamas</br></br> <span style="margin-left:10px">检查质押指令<a href="https://community.iotex.io/t/how-to-stake-on-iotex-mainnet-ga/1245">这里</a></span><br/><span style="margin-left:10px">下载iopay<a href="https://iopay.iotex.io/">这里</a></span>'
+voting.banner_content.modal.native_staking: 'ioPay 移动端已支持在app中进行质押，请使用app主页上的“质押”按钮开始操作。'
 button.understand: 我明白，继续。
 button.cancel: 取消
-button.continue: Continue
+button.continue: 继续
 candidates.vote_now: 现在投票
 candidates.election.ELECTED: 当选
 candidates.election.NOT_ELECTED: 未当选
 candidates.election.UNQUALIFIED: 未当选
-candidates.election.explain: '节点必须质押至少<b> 120万 IOTX </b>并获得<b> 200万IOTX </b>以上的总票数才能成为正式的全民节点。'
+candidates.election.PROBATION: 延迟
+candidates.election.explain: '节点必须注册<a href="https://member.iotex.io/profile/name-registration/">您的操作员和奖励地址</a>并自行质押至少 <b> 1，200，000 IOTX-E</b>并获得 <b> 2，000，000 IOTX-E</b> 的总票数才能当选。'
 candidates.election.NOT_EQUIPPED: 未提供
 candidates.election.ONLINE: 在线
 candidates.election.OFFLINE: 离线
@@ -134,51 +187,373 @@ candidates.election.delegates_candidates: 共识节点候选人
 candidates.delegate_list: 节点列表
 candidates.rank: 排名
 candidates.blurb: 简介
-candidates.badge_info.hermes.title: Hermes Delegate
-candidates.badge_info.hermes.content: Automatic Rewards Distribution via Hermes
-candidates.badge_info.genesis.title: Delegate Since Day 1
-candidates.badge_info.genesis.content: Joined to produce the genesis block
-candidates.badge_info.ambassador.title: Ambassador Delegate
-candidates.badge_info.ambassador.content: Official IoTeX Community Ambassador
-candidate.MISSED: 丢了
-candidate.PRODUCING: 出块中
+candidates.badge_info.hermes.title: Hermes节点
+candidates.badge_info.hermes.content: '通过Hermes自动分配奖励<a target=''_blank'' href="https://hermes.to/">了解更多信息</a>'
+candidates.badge_info.genesis.title: 初始节点
+candidates.badge_info.genesis.content: 加入以生成起源块
+candidates.badge_info.ambassador.title: 节点大使
+candidates.badge_info.ambassador.content: IoTeX社区官方大使
+candidate.MISSED: 丢失
+candidate.PRODUCING: 生产中
 candidate.VERIFYING: 验证中
 candidate.vote: 投票
+candidate.vote.native: IOTX
+candidate.vote.erc20: IOTX-E（ERC-20）
+candidate.herems.distribution_ratios: 分配比率（通过Hermes）
+candidate.herems.block_reward: 块奖励
+candidate.herems.epoch_reward: Epoch奖励
+candidate.herems.foundation_bonus_reward: 基础奖金奖励
+candidate.herems.more_details: 更多详情
+candidate.delegate_badges: 徽章
 candidate.delegate_name: 节点名称
 candidate.status: 状态
-candidate.live_votes: 实时得票
+candidate.live_votes: 实时投票
 candidate.percent: 得票率
+candidate.node_version: 节点版本
 candidate.elected: 当选
 candidate.not_elected: 未当选
-candidate.productivity: Productivity
+candidate.productivity: 生产率
+my_stake.re_edit: 编辑
+my_stake.bucketOwner: 持有者
+my_stake.canName.err: 名称无效
+my_stake.canName.required: 请输入节点的名字
+my_stake.canName: 节点名称
+my_stake.tranferOwnership.required: 请输入转账地址。
+my_stake.tranferOwnership: 转账地址
+my_stake.data: 数据
+my_stake.button.vote_with_iopay: '使用 IoPay 投票'
+my_stake.edit.add_staking: 增加质押
+my_stake.edit.restake: 重新质押
+my_stake.edit.revote: 选择节点
+my_stake.edit.transfer: 重新选择投票包
+my_stake.edit.row: 交易
+my_stake.edit.unstake: 解除质押
+my_stake.edit.withdraw: 赎回质押
+my_stake.edit: 编辑质押
+my_stake.id: ID
+my_stake.new: 为节点投票
+my_stake.nonDecay.yes: 是
+my_stake.nonDecay.no: 否
+my_stake.restake.cannot: 不能重新质押
+my_stake.restake.desc: '你确定要重新质押吗？<div style=“color:$color；”>您需要三天时间才能再次操作。<div>'
+my_stake.restake.err: '<div style="color: ${color};">请在重新质押前设置您的开始时间.</div>'
+my_stake.restake.title: '重新质押我的质押 (ID ${bucketIndex})'
+my_stake.revote.title: '切换我的节点（ID ${bucketIndex} ）'
+my_stake.transfer.title: '重新分配我的投票包（ID ${bucketIndex} ）'
+my_stake.stakedAmount.required: 请输入数量.
+my_stake.stakedAmount.min: '自我质押投票包应至少包含${min} IOTX'
+my_stake.stakedAmount: 数量
+my_stake.bucketId: '投票包 ID'
+my_stake.bucketId.required: 请选择投票包
+my_stake.stakeDuration.err: '质押时间必须在0到${maxValue}'
+my_stake.largerOrEqualTo.err: '必须大于或等于${num}.'
+my_stake.smallerOrEqualTo.err0: '您的余额为${num} ，小于${min}'
+my_stake.smallerOrEqualTo.err: '必须小于或等于${num}.'
+my_stake.stakeDuration.required: 请输入您想要质押的时间
+my_stake.stakeDuration: 质押期限
+my_stake.stakeDuration.epochs: '${stakeDuration} 天'
+my_stake.stakeTime: 有效时间
+my_stake.unstake.cannot: 不能取消投票
+my_stake.unstake.desc: '你确定要取消投票吗？<div style=“color:$color；”>您需要三天时间才能再次操作。<div>'
+my_stake.unstake.err: '<div style="color: ${color};">请在解除质押前设置您的开始时间.</div>'
+my_stake.unstake.title: '重新质押我的投票 (ID ${bucketIndex})'
+my_stake.withdraw.cannot: '<div style="color: ${color};">请在赎回前解除质押.</div>'
+my_stake.withdraw.confirm: '确定赎回?'
+my_stake.withdraw.title: '赎回 (ID ${bucketIndex})'
+my_stake.withdraw.wait: '在解除质押未完成前，不能取出IOTX，请耐心等待 ${waitUntil}.'
+my_stake.proceed_to_vote: 开始投票
+my_stake.proceed_to_stake: 开始质押
+my_stake.canName_tint: 为节点投票
+my_stake.amount_of_vote: '# 票'
+my_stake.duration_of_epoch: '# 天'
+my_stake.change_anytime: 您可以在任何时间改变
+my_stake.extend_anytime: 您可以在任何时间延长
+my_stake.cannot_change: 一旦设置后就不能改变
+my_stake.allow_add_more: 一旦设置后就只能增加。
+my_stake.current_balance: 当前余额
+my_stake.your_wallet_balance: 您的钱包余额
+my_stake.insufficient_balance: 余额不足
+my_stake.autoStake_explain: 开启此选项，您的质押天数将维持在选定的天数，您的票数将保持在对应的数量。
+my_stake.voting_power: 票数
+my_stake.voting_power_explain: 质押期间预估投票分配。
+my_stake.on_process: '正在处理您的请求 ...'
+my_stake.on_process_stake: '您将质押 ...'
+my_stake.on_process_confirmation: 请在Metamask上确认.
+my_stake.on_process_native_confirmation: 请在IoTeX钱包上确认
+my_stake.from_wallet: 来自钱包
+my_stake.vote_success: 您已成功投票!
+my_stake.stake_success: 您已成功质押!
+my_stake.make_transaction: 确认
+my_stake.back: 确定
+my_stake.remain_balance: '执行此项操作后,您的账户余额是  <b>${remain}</b> IOTX-E'
+my_stake.u_sure: '您确定要进行此操作么?'
+my_stake.transaction_hash: '您的投票 hash 是 <span style="color: #0b8de3;"><a href="${href}">${txHash}</a></span>'
+my_stake.check_few_seconds: '请稍后再次确认<a href="${href}"> <b style="color: #0b8de3;">My Votes</b></a>'
+my_stake.unstake.nondecay_flag: 需要解除自动质押模式才能解除质押。
+my_stake.nonDecay.calculate_auto: '您将保留同样的投票权，除非您禁用了自动质押功能 一旦您选择禁用自动质押功能，投票 <b>${duration}</b>  天数结束时将会失效 <br/><b style="font-size: 16px">${votes}</b><br/>VOTES'
+my_stake.nonDecay.calculate_estimate: '<small>${date}</small><br/><b style="font-size: 16px">${total}</b><br/>VOTES'
 my_stake.address: 钱包地址
 my_stake.wallet_balance: 钱包余额
 my_stake.staking_amount: 质押总数
 my_stake.unstake_pendding_amount: 正在赎回的数量
-my_stake.withdrawable_amount: 可以取出的
+my_stake.withdrawable_amount: 可以取出
 my_stake.votes_amount: 总投票数
-my_stake.staking_bucket: 投票桶
+my_stake.to_transaction_history: 账户交易记录
+my_stake.new_stake.button: 开始质押
+my_stake.new_stake: '质押我的 IOTX'
+my_stake.my_votes: 我的投票组合
+my_stake.staking_bucket: 投票包
 my_stake.vote_for: 投票给
 my_stake.stake_duration: 质押期限
 my_stake.autostake: 自动质押
 my_stake.bucket_status: 状态
 my_stake.nonDecay: 自动质押
-my_stake.new_vote: 创建质押
-my_stake.button.vote_with_iopay: '用IoPay投票'
+my_stake.new_vote: 新质押
 my_stake.refresh_list: 刷新
-my_stake.set_compound_interest_bucket: 复利票桶
-my_votes.erc20_tab: 'IOTX-E (ERC-20)'
-my_votes.native_tab: 'IOTX'
-my_stake.title: 我的投票
-my_stake.edit.add_staking: 创建质押
-my_stake.edit.restake: 重新质押
-my_stake.edit.revote: 修改候选人
-my_stake.edit.transfer: 转让质押桶
-my_stake.edit.row: Action
-my_stake.edit.unstake: 赎回质押
-my_stake.edit.withdraw: 提取赎回
-action.broadcasted: 广播成功！请稍候几秒钟，刷新此页以查看结果。
-delegate.annotate.non-official: '*这不是IoTeX官方节点。'
-button.remove.bucket: '撤销使用No.${bucket}'
-profile.reward-address.use_hermes_checkbox: '使用 Hermes 自动分发奖励给你的投票人。<a target=''_blank'' href=''https://hermes.to/user-guide''>了解更多</a>'
-profile.reward-address.enter_reward_addr_checkbox: '输入你自己的奖励地址'
+my_stake.set_compound_interest_bucket: 复利投票包
+my_stake.select_compound_interest_bucket: 请选择一个投票包来收取您的利息：
+my_votes.erc20_tab: IOTX-E（ERC-20）
+my_votes.native_tab: IOTX
+my_stake.title: 我的选票
+my_stake.order_no: 'No.${no}'
+my_stake.votes_number: '${votes}票'
+my_stake.staked_amount_format: '${金额} IOTX'
+my_stake.native_staked_amount_format: '${金额} IOTX'
+my_stake.duration_epochs: '${质押周期} 天'
+my_stake.duration_epochs.testnet: '${质押周期} 天'
+my_stake.from_time: '从 $[开始时间]'
+my_stake.start_from: 开始时间
+my_stake.to: 到
+my_stake.status.ongoing: 进行中
+my_stake.status.unstaking: 解除质押中
+my_stake.status.withdrawable: 可以取出
+my_stake.status.no_stake_starttime: 无开始质押时间
+my_stake.status.ongoing.prefix: 'From ${time}'
+my_stake.status.unstaking.prefix: '直到 ${time}'
+my_stake.status.withdrawable.prefix: '在 ${time}'
+my_stake.status.no_stake_starttime.prefix: '---'
+my_stake.delegate.name.info: '您将给您已经注册的名字 ${name} 进行质押。'
+my_stake.staking_power: 票数
+my_stake.bonus.early_voter: 早鸟质押奖励
+my_stake.bonus.none: 无
+my_stake.bonus.active: 已激活
+my_stake.delegate_reward: 节点奖励计划
+my_stake.staking_power.estimate: '${total} 票'
+my_stake.confirmation.msg: 如果继续，您将开始和智能合约交互。你有可能看到两个交易确认。1)是给质押和投票合约许可（如果您已经给了许可，就不会出现）2)是建立一个质押投票桶。
+my_stake.confirmation.auto_stake_tip: '你的质押时间将会持续 ''${count} 天，直到你关闭自动质押选项'
+my_stake.congrats_voter: '恭喜你成为 <a href="/member/"><b style="color: #0b8de3;">创世会员&#127881;</b></a>'
+my_stake.share_twitter: Twitter分享
+my_stake.epoch_day: 质押持续时间（天）
+my_stake.self_staking: 自我质押
+my_stake.burn-drop: 可以参加烧投计划
+voting.vote.from.wallet: 从钱包投票
+voting.vote.existing.bucket: 从已有的投票桶转投
+name_registration.register: 提交
+name_registration.cancel: 取消
+name_registration.edit: 编辑
+name_registration.update: 更新
+name_registration.ok: 完成
+name_regsitration.name: 节点名称
+name_regsitration.name.required: 请输入一个符合要求的名字.
+name_regsitration.name.explanation: '链上委托的名称，应为小写字符或数字，不超过 12 字节'
+name_regsitration.operator_pub_key: 运营商地址
+name_regsitration.operator_pub_key.required: 请输入您的操作员的IoTeX钱包地址.
+name_regsitration.operator_pub_key.explanation: '该地址及其私钥应设置为运行<a target=''_blank'' href=''https://github.com/iotexproject/iotex-core''> iotex-core </a>协议的完整节点'
+name_regsitration.reward_pub_key: 奖励地址
+name_regsitration.reward_pub_key.required: 请输入奖励发送的IoTeX钱包地址.
+name_regsitration.reward_pub_key.explanation: 协议的奖励将发送到该地址
+name_regsitration.owner: 持有者地址
+name_regsitration.stakedAmount: IOTX质押数
+name_regsitration.stakedAmount.explanation: 质押并投票给自己的IOTX的数量，称为自利桶
+name_regsitration.stakedDuration: 质押期限
+name_regsitration.stakedDuration.explanation: 你打算质押IOTX多长时间？持续时间越长，协议提供的收益就越高
+name_regsitration.autoStake: 自动质押
+name_registration.submit.success_tip: 已成功发送您的操作！
+name_registration.data: 数据
+my_stake.exsitingBucketWarning: 你将用现有的投票桶转投
+my_stake.exsitingBucketWarningExplain: '这么做您原来的投票将会转给新的节点。您的质押的天数和状态将不改变。转投后， 您将不会收到原来的节点给您发的任何收益了，您可能的收益将来自于新的节点。'
+my_stake.existingBucket: 现有投票包
+my_stake.inMyVotes: 在<b>我的选票</b>
+voting.iopay-reminder.content: '继续投票过程，请确保您已解锁IoTeX桌面钱包（版本号> = 0.6.2）。 <a target="_blank" href="https://support.iotex.io/hc/en-us/articles/360020614094">了解更多信息</a>'
+voting.iopay-reminder.title: 您即将为IoTeX节点投票
+my_stake.addStaking: 数量
+my_stake.addStakingAmount: '# 总共添加的通证数量'
+my_stake.totalStaking: 总数
+my_stake.totalStakingAmount: '# 总共投票的通证数量'
+my_stake.add_staking.title: '将IOTX（本地）添加到“我的投票包”（ID ${bucketIndex} ）'
+my_stake.add_staking.desc: 新添加的通证将与当前的投票包设置一致，包括节点名称、剩余的质押/投票时间，自动投票选择等。
+my_stake.addStakingAmount.required: 请输入一个数量。
+my_votes.nativeStaking.open_ioPay_alert: 确保您的ioPay桌面应用程序处于打开状态
+my_votes.nativeStaking.open_ioPay_tip: 如果页面加载时间很长，请确保ioPay桌面钱包已解锁，然后刷新页面。
+my_stake.status.suffix.anytime: 任何时间
+my_stake.status.suffix.autostake_only: 仅自动投票
+my_stake.status.suffix.not_applicable: 不适用
+my_stake.status.suffix.from: '${time} 后'
+profile.banner_image.required: 上传横幅图片
+profile.banner_image: 横幅图片
+profile.blurb.required: 请输入您的一句话宣言
+profile.blurb: '一句话宣言 (100字以内)'
+profile.community_plan.required: 请输入您的社区计划.
+profile.community_plan: '社区计划 (1000字以内) 可使用 markdown'
+profile.introduction.required: 请输入您的介绍.
+profile.introduction: '介绍  (500字以内) 可使用 markdown'
+profile.invalid_url: '''${value}'' 是无效的URL'
+profile.location.required: 请输入地址
+profile.location: 位置
+profile.logo.required: 上传Logo
+profile.logo: Logo
+profile.name.required: 请输入节点的名字
+profile.name: '节点名字 (20字以内)'
+profile.name_registration: 名称注册
+profile.welcome: 欢迎
+profile.welcome_text: '<h1 class="code-line" data-line-start=0 data-line-end=1 > <a id="If_you_are_interested_in_becoming_an_IoTeX_Delegate_complete_the_following_registration_items_0"> </a>如果您有兴趣成为IoTeX代表，请完成以下注册项目： </h1> <ol> <li class="has-line-data" data-line-start="1" data-line-end="2">通过阅读我们的所有内容，了解IoTeX节点计划《一体式委托手册》： <a href="https://docsend.com/view/wsfqu7cbm8fd5un5"> https://docsend.com/view/wsfqu7cbm8fd5un5 </a> </li> <li class="has-line-data" data-line-start="2" data-line-end="3">通过向<a href="mailto:larry@iotex.io"> larry @ iotex</a>发送电子邮件，与IoTeX创始人安排会议。（可选） </li> <li class="has-line-data" data-line-start="3" data-line-end="4">创建网站和/或社交媒体与您未来的选民沟通的渠道。除了您在<a href="https://member.iotex.io"> https://member.iotex.io </a>上的投票资料外，这些都是IoTeX社区了解您的代表的主要方式。 </li> <li class="has-line-data" data-line-start="4" data-line-end="5">设置服务器以操作节点-有关完整说明，请参见IoTeX Github： <a href="https://github.com/iotexproject/iotex-bootstrap"> https://github.com/iotexproject/iotex-bootstrap </a> </li> <li class="has-line-data" data-line-start="5" data-line-end="6">注册您的代表节点并填写您的投票资料-您可以按照此处的分步说明进行操作： <a href="https://docs.google.com/document/d/1NLtFFVv6CwCsWG_y6FtbS97zfOGWxqh4Ij2lW0O1-B0/"> https://docs.google.com/document/d/1NLtFFVv6CwCsWG_y6FtbS97zfOGWxqh4Ij2lW0O1-B0/ </a> </li> <li class="has-line-data" data-line-start="6" data-line-end="7">完成上述步骤后，您将有资格获得投票。参与IoTeX社区并进行竞选活动！ </a> </li> </ol>'
+profile.profile: 我的资料
+profile.received: 收到的选票
+profile.register_name: 注册选举名
+profile.block_reward_portion.required: 请输入您想要分配的块奖励的部分。
+profile.epoch_reward_portion.required: 请输入您想分配的Epoch奖励部分。
+profile.foundation_reward_portion.required: 请输入您想分配的基础奖励部分。
+profile.block_reward_portion: 块奖励分配部分
+profile.epoch_reward_portion: Epoch奖励分配
+profile.foundation_reward_portion: 基金会奖励分配部分
+profile.reward_plan.required: 请输入您的奖励计划
+profile.reward_plan: '奖励计划 (1000字以内)'
+profile.reward_plan.insertFormat: 推荐格式
+profile.reward_plan.insertCancel: 取消
+profile.reward_plan.recomendFormat: "你将重新分配给选民每日奖金奖励的百分比\n\n付款频率（即每天，3天，每周） \n\n您的其他奖励计划（例如，选民，基础设施，dApp资金，利润）"
+profile.settings: 设置
+profile.settings.content: '您当前以 <pre><b>${ioAddress} </b></pre> 登录，在主网 GA 之前，您相应的 ETH 钱包地址是 <pre><b>${ethAddress}</b></pre>'
+profile.social_media.required: 请输入您的社交媒体的地址.
+profile.social_media: '社交媒体链接 (至少一个链接，按空格分隔)'
+profile.team.required: 请输入您的团队背景.
+profile.team: '团队 (1000字以内) 可使用markdown'
+profile.tech_setup.required: 请输入服务器配置.
+profile.tech_setup: '服务器配置 (1000字以内) in markdown'
+profile.title: 节点资料
+profile.update: 更新我的资料
+profile.preview: 预览
+profile.change_saved: 您的资料已更新成功
+profile.change_not_saved: 您的资料更新失败，请检查您的字段。
+profile.website.required: 请输入您的网址。
+profile.website: 网址
+profile.technical: 技术信息
+profile.serverEndpoint: '服务地址和端口(例如 your.domain:14014 或 your.domain:14014)。如果你不知道它是什么，请把它留空。'
+profile.serverHealthEndpoint: '运行状况端口，例如，https://your.domainOrIp:14014/health。'
+profile.serverEndpoint.required: 请输入您的服务地址和端口
+profile.invalid_endpoint: 无效服务器地址或端口
+profile.discordName: 名称
+profile.discordName.required: 请输入您的名称
+profile.invalid_discordName: 无效的discord名称
+profile.email: 电子邮件
+profile.email.required: 请输入您的邮箱地址
+profile.invalid_email: 无效邮箱地址
+profile.reward-distribution: 奖励颁发
+profile.update-reward-distribution: 更新
+profile.reward-distribution.confirming: 我们收到了你更新的奖励分配申请。请等待5分钟，我们的页面才能显示它。
+profile.reward-distribution.error: 无法更新奖励分配。
+profile.reward-distribution.reject: 拒绝！
+profile.annual_reward: 年度奖励
+profile.annual_reward.required: 请输入年度奖励。
+profile.rewards_distribution: 投票人奖励
+profile.claim_rewards: 索取IOTX
+profile.move_to_eth_wallet: 交换到IOTX-E
+profile.distribute_iotx: 发放IOTX-E
+profile.rewards: 发放奖励
+profile.rewards.distribute_plan: 分配计划
+profile.rewards.distribute_list: 发放列表
+profile.rewards.distribute_record: 发放记录
+profile.rewards.available_rewards: 可用余额
+profile.rewards.dtbplan.p1: 我将要把以下这些奖励发放给投票人.
+profile.rewards.constructor1: Epoch奖励
+profile.rewards.constructor2: 基金会奖励
+profile.rewards.continue: 继续计算
+profile.rewards.upload: '上传 .csv 文件'
+profile.rewards.upload.area: 点击选择文件或者拖拽文件到当前区域
+profile.rewards.confirm: 确认发放
+profile.rewards.confirm.content: 当前的数据记录未被存储，请在点击确认按钮离开本页之前仔细核对或者下载列表.
+profile.rewards.listtips: '*本工具只处理超过 ${tipAmount}IOTX 的事务'
+profile.rewards.send: '${sendAmount} IOTX 已发送！检查事务哈希以查看状态。'
+profile.calculate_rewards: 计算奖励
+profile.op-reward.addresses: 操作/奖励地址
+profile.op-address.unset_warning: 请在运行节点之前设置操作权限。
+profile.op-address.set_warning: 请注意，设置新的操作地址后，需要在节点配置中更新操作地址。
+profile.reward-address.unset_warning: '建议将<a target=''_blank'' href=''http://hermes.to/''>Hermes</a>用于分配给选民的奖励。'
+profile.reward-address.set_warning: 请注意，设置新的奖励地址后，您需要在节点配置中更新奖励地址。
+profile.reward-address.used_hermes: '使用<a target=''_blank'' href=''http://hermes.to/''>Hermes</a>来向选民分配你的奖励。'
+profile.reward-address.use_hermes_checkbox: '使用Hermes自动向选民分配您的奖励。<a target=''_blank'' href=''https://hermes.to/user-guide''>了解更多</a>。'
+profile.reward-address.enter_reward_addr_checkbox: 输入我自己的奖励地址
+profile.update-candidate.other-fields: '您可以通过<span style="color: #0b8de3;"> <a href="${href}"> ${text} </a> </span>更新质押时间、质押数量以及开启自动质押。'
+profile.register_name.desc: '请按照以下说明在IoTeX区块链上注册您的代表姓名，并将其与操作员地址（产生区块的人）和奖励地址（获得奖励的人）相关联，并创建您的自负盈亏的IOTX存储桶。注册费用为100 IOTX。'
+profile.register_name.submit.desc: 点击“提交”，指定的IOTX将从您的帐户中取出并存入投票包中。
+auth/sign_in.title: 成为IoTeX节点代表
+auth/button_submit: 使用IoPay登录或注册
+auth/failed_to_login: 登录失败。请刷新页面，然后重新登录。
+auth/sign_out: 退出登录
+reward_distribution.maintenance: 维护中，请稍后再试。
+rewards.form_title: '请输入要查询的节点的时间段和奖励设置,以获取其投票人的奖励'
+rewards.distribution: 奖励包括在分发中
+rewards.distribution.register_name: 注册名称
+rewards.distribution.register_name.required: 需要注册名称
+rewards.distribution.start: 开始
+rewards.distribution.start.required: 需要开始Epoch
+rewards.distribution.to: 至
+rewards.distribution.to.required: 需要Epoch
+rewards.distribution.percentage: 百分比
+rewards.distribution.percentage.required: 所需百分比
+rewards.distribution.integer.error: 必须是整数
+claim-reards.install_bookkeeper_tip: '如果尚未安装 Bookkeeper , 请复制以下命令并在在终端运行以安装。'
+rewards.distribution.start.help: 您想查询的周期开始时的Epoch数
+rewards.distribution.to.help: 您想查询的周期结束时的Epoch数
+rewards.distribution.percentage.help: 此节点将分配的奖励百分比
+rewards.distribution.count: 计算Epoch值
+rewards.distribution.count.required: 需要计算Epoch值
+rewards.distribution.count.help: 要查询的Epoch值
+rewards.tools.update: '请打开终端运行以下命令，确保 ioctl 已更新到最新版本。'
+rewards.tools.bookkeeper: '如果尚未安装 Bookkeeper , 请复制以下命令并在在终端运行以安装。'
+rewards.calculate.table.button: 分析计算奖励表
+rewards.distribution.recipient_address: 接收地址
+rewards.distribution.amount: 数量
+rewards.distribution.step_1: 步骤1：获取奖励列表
+rewards.distribution.step_2: 第2步上传奖励列表
+rewards.distribution.upload_info: '请为您的奖励分配准备一个CSV文件，并在下方上传后继续下一步。 CSV文件应包含两栏内容： 投票地址，金额。金额应以Wei为单位。'
+rewards.distribution.upload_info_2: 请上传CSV文件。
+delegate.rewards_download: 下载所有奖励
+claim-rewards.your_iotex_reward_address: 你的IoTeX地址
+claim-reward.query_result: 查询结果
+claim-reward.available_credits: 可用额度
+claim-rewards.io_address.required: 需要IoTeX地址
+claim-rewards.io_address.help: 请使用以io开头的IoTeX地址
+claim-rewards.io_address.placeholder: io12345693ug8r3zdeysppnyrcdu2xssz0lcam9l9
+claim-reward.search: 搜索
+claim-reward.reward_address: IoTeX地址
+claim-reward.amount: 可领取的额度
+claim-reward.submit: 领取额度
+claim-reward.submit.help: 在IoPay中完成登录和确认后刷新页面
+claim-reward.ok: 完成
+claim-reward.sign: 在IoPay上签名并确认
+claim-reards.copy.modal: 复制代码段并在你的终端中执行
+claim-rewards.copy: 复制
+claim-reward.amount.error: 请输入一个数字。
+claim-reward.eth_address: 映射ETH地址
+copy.toClipboard: 复制到粘贴板
+copy.copied: 已复制
+reclaimBucket.introduction: '使用此工具，你可以回收硬件钱包中的私钥/帐户拥有的投票包。它的工作原理是使用私钥对消息进行签名，以证明你对投票包的所有权并指明新地址，在验证后，投票包将被转移到IoTeX区块链上的新地址。您还可以使用我们的ioctl工具回收投票包，运行“ ioctl stake2 reclaim”，并按照说明进行操作。'
+reclaim.bucketHeader: 投票包回收
+reclaim.bucketIndex: 投票包索引
+recliam.bucketIndex.error: 输入投票包索引
+reclaim.recipientAddress: 接收地址
+reclaim.recipientAddress.error: 输入接收者地址
+reclaim.message: 需要签名的消息
+reclaim.success: 操作已成功广播！
+reclaim.copyMessaage: 复制信息至HD钱包签名
+reclaim.contiunueButton: 继续
+reclaim.reclaimMessage: '这是为了证明我正在将该投票包的所有权转移到 IoTeX 区块链上的接受者'
+reclaim.popUpMessage.runIoctlCmd: 您可以通过运行以下ioctl命令来回收投票包
+reclaim.continueWebTools: '或者，如果您希望使用 Web 工具，请确保 ioPay 已打开（并且具有收件人私钥/帐户），然后单击"继续"'
+reclaim.sig.desc: 来自以太坊钱包的签名
+reclaim.sign-and-send: 回收
+reclaim.click-to-sign: 单击此处签署信息
+action.broadcasted: 已成功广播！请等待几秒钟并刷新此页面以查看结果。
+button.remove.bucket: '删除当前投票包编号${bucket}'
+my_stake.compound_modal.content: 你可以通过选择“复利投票包”自动开启重新质押来获得质押奖励。此投票包将获得所有质押奖励（仅来自Hermes节点），以使用户的复利最大化。
+my_stake.compound_modal.note: 注意：你的投票包必须启用自动质押功能。
