@@ -25,6 +25,10 @@ const buyIotxList = [
     src: "voting-website/binance.png",
   },
   {
+    href: "https://www.huobi.be/en-us/exchange/iotx_usdt/",
+    src: "voting-website/huobi-brand.png",
+  },
+  {
     href: "https://gateio.io/trade/IOTX_USDT",
     src: "voting-website/gate.png",
   },
