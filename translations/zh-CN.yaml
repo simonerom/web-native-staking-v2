@@ -438,7 +438,7 @@ profile.website.required: 请输入您的网址。
 profile.website: 网址
 profile.technical: 技术信息
 profile.serverEndpoint: '服务地址和端口(例如 your.domain:14014 或 your.domain:14014)。如果你不知道它是什么，请把它留空。'
-profile.serverHealthEndpoint: '运行状况端口，例如，https://your.domainOrIp:14014/health。'
+profile.serverHealthEndpoint: '运行状况端口，例如，http://your.domainOrIp:8080/health。'
 profile.serverEndpoint.required: 请输入您的服务地址和端口
 profile.invalid_endpoint: 无效服务器地址或端口
 profile.discordName: 名称
