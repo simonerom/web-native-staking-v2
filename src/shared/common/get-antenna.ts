@@ -29,7 +29,8 @@ export function getAntenna(): Antenna {
   if (isIoPayMobile) {
     signer = new WvSigner();
   } else if (isBrowser) {
-    signer = new WsSignerPlugin("wss://local.iotex.io:64102");
+    signer = signer =
+      window.antennaSigner || new WsSignerPlugin("wss://local.iotex.io:64102");
   }
   injectedWindow.antenna = new Antenna(iotexCore, {
     signer,
