@@ -557,3 +557,4 @@ action.broadcasted: 已成功广播！请等待几秒钟并刷新此页面以查
 button.remove.bucket: '删除当前投票包编号${bucket}'
 my_stake.compound_modal.content: 你可以通过选择“复利投票包”自动开启重新质押来获得质押奖励。此投票包将获得所有质押奖励（仅来自Hermes节点），以使用户的复利最大化。
 my_stake.compound_modal.note: 注意：你的投票包必须启用自动质押功能。
+candidate.epoch_progress: 周期进度
