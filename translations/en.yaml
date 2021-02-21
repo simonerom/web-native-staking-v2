@@ -213,6 +213,7 @@ candidate.node_version: Node Version
 candidate.elected: Elected
 candidate.not_elected: Not Elected
 candidate.productivity: Productivity
+candidate.epoch_progress: Epoch Progress
 my_stake.re_edit: Edit
 my_stake.bucketOwner: Owner
 my_stake.canName.err: 'Name is invalid.'
