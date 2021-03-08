@@ -164,7 +164,7 @@ voting.progress-bar.circulating.supply: 流通
 voting.buy_iotx: '购买 IOTX'
 voting.metamask-reminder.content: '继续投票过程，请确保您已解锁MetaMask并链接到IoTeX。 <a target="_blank" href="https://support.iotex.io/hc/en-us/articles/360020614094">了解更多信息 </a>'
 voting.banner_title: 质押IOTX来帮助保护IoTeX网络
-voting.banner_content: 'IoTex 网络由 $[节点计数] 分散委托维护。通过投票选举节点，您可以参与网络治理并获得 IOTX 奖励！'
+voting.banner_content: 'IoTex 网络由 ${delegatesCount}  分散委托维护。通过投票选举节点，您可以参与网络治理并获得 IOTX 奖励！'
 voting.banner_content.other_browser: 'IoTeX网络由${delegatesCount}去中心化节点进行维护。通过为您支持的节点投票，您可以参与网络治理并获得IOTX奖励！ <a href="https://community.iotex.io/t/how-to-stake-on-iotex-mainnet-ga/1245?from=from_parent_docs">如何进行抵押和投票- > </a>'
 voting.banner_content.modal: '随着  6 月 1 日上线的Mainnet GA "Machina" 版本， IoTex 现在是一个完全本地的区块链。选民将使用原生IOTX和ioPay（官方的IoTeX钱包）在IoTeX网络上进行质押和投票，而不是IOTX-E（以太坊）和Metamas</br></br> <span style="margin-left:10px">检查质押指令<a href="https://community.iotex.io/t/how-to-stake-on-iotex-mainnet-ga/1245">这里</a></span><br/><span style="margin-left:10px">下载iopay<a href="https://iopay.iotex.io/">这里</a></span>'
 voting.banner_content.modal.native_staking: 'ioPay 移动端已支持在app中进行质押，请使用app主页上的“质押”按钮开始操作。'
@@ -235,7 +235,7 @@ my_stake.new: 为节点投票
 my_stake.nonDecay.yes: 是
 my_stake.nonDecay.no: 否
 my_stake.restake.cannot: 不能重新质押
-my_stake.restake.desc: '你确定要重新质押吗？<div style=“color:$color；”>您需要三天时间才能再次操作。<div>'
+my_stake.restake.desc: '你确定要重新质押吗？<div style=“color:${color}；”>您需要三天时间才能再次操作。<div>'
 my_stake.restake.err: '<div style="color: ${color};">请在重新质押前设置您的开始时间.</div>'
 my_stake.restake.title: '重新质押我的质押 (ID ${bucketIndex})'
 my_stake.revote.title: '切换我的节点（ID ${bucketIndex} ）'
@@ -317,11 +317,11 @@ my_votes.native_tab: IOTX
 my_stake.title: 我的选票
 my_stake.order_no: 'No.${no}'
 my_stake.votes_number: '${votes}票'
-my_stake.staked_amount_format: '${金额} IOTX'
-my_stake.native_staked_amount_format: '${金额} IOTX'
-my_stake.duration_epochs: '${质押周期} 天'
-my_stake.duration_epochs.testnet: '${质押周期} 天'
-my_stake.from_time: '从 $[开始时间]'
+my_stake.staked_amount_format: '${amountText} IOTX'
+my_stake.native_staked_amount_format: '${amountText} IOTX'
+my_stake.duration_epochs: '${stakeDuration} 天'
+my_stake.duration_epochs.testnet: '${stakeDuration} 天'
+my_stake.from_time: '从 ${startTime}'
 my_stake.start_from: 开始时间
 my_stake.to: 到
 my_stake.status.ongoing: 进行中
