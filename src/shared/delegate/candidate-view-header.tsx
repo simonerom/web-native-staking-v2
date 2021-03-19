@@ -266,7 +266,7 @@ class CandidateProfileViewHeader extends Component<Props, State> {
                   const variables: RewardsQueryVariables = {
                     startEpoch: epochData.chain.mostRecentEpoch,
                     epochCount: 1,
-                    delegateName: String(data.name).toLowerCase(),
+                    delegateName: String(data.registeredName).toLowerCase(),
                   };
                   return (
                     <Query
