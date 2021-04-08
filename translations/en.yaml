@@ -274,7 +274,7 @@ my_stake.allow_add_more: 'You can only increase this once processed'
 my_stake.current_balance: 'Current balance'
 my_stake.your_wallet_balance: 'Your wallet balance'
 my_stake.insufficient_balance: 'Insufficient balance'
-my_stake.autoStake_explain: 'Turn on Auto-Stake to lock your Stake Duration and retain your bonus votes indefinitely.'
+my_stake.autoStake_explain: 'Turn on Stake-Lock to lock your Stake Duration and retain your bonus votes indefinitely.'
 my_stake.voting_power: 'Staking Power'
 my_stake.voting_power_explain: 'Total votes throughout your Stake Duration'
 my_stake.on_process: 'You are about to process ...'
@@ -290,8 +290,8 @@ my_stake.remain_balance: 'After sending this, your account balance will be <b>${
 my_stake.u_sure: 'Are you sure you want to do this?'
 my_stake.transaction_hash: 'Your voting transaction hash is <span style="color: #0b8de3;"><a href="${href}">${txHash}</a></span>'
 my_stake.check_few_seconds: 'Please check a few seconds later in <a href="${href}"><b style="color: #0b8de3;">My Votes</b></a>'
-my_stake.unstake.nondecay_flag: 'Cannot unstake when the bucket is autostaked. You need to disable auto-stake first.'
-my_stake.nonDecay.calculate_auto: 'You will retain the same voting power until you disable Auto-Stake. The stake duration of <b>${duration}</b> days will begin to elapse once you have disabled Auto-Stake. <br/><b style="font-size: 16px">${votes}</b><br/>VOTES'
+my_stake.unstake.nondecay_flag: 'Cannot unstake when the bucket is autostaked. You need to disable Stake-Lock first.'
+my_stake.nonDecay.calculate_auto: 'You will retain the same voting power until you disable Stake-Lock. The stake duration of <b>${duration}</b> days will begin to elapse once you have disabled Stake-Lock. <br/><b style="font-size: 16px">${votes}</b><br/>VOTES'
 my_stake.nonDecay.calculate_estimate: '<small>${date}</small><br/><b style="font-size: 16px">${total}</b><br/>VOTES'
 my_stake.address: 'Account address'
 my_stake.wallet_balance: 'Wallet balance'
@@ -308,7 +308,7 @@ my_stake.vote_for: 'Vote For'
 my_stake.stake_duration: 'Stake Duration'
 my_stake.autostake: 'Auto Stake'
 my_stake.bucket_status: 'Bucket Status'
-my_stake.nonDecay: Auto-Stake
+my_stake.nonDecay: Stake-Lock
 my_stake.new_vote: 'New Stake'
 my_stake.refresh_list: Refresh
 my_stake.set_compound_interest_bucket: Compound Interest Bucket
@@ -341,7 +341,7 @@ my_stake.bonus.active: Active
 my_stake.delegate_reward: 'Delegate Rewards'
 my_stake.staking_power.estimate: '${total} Votes'
 my_stake.confirmation.msg: 'If you continue, you will start to interact with staking smart contract. There may be two confirmations: 1) approve smart contract to accept your staked IOTX (will be skipped if you have already appoved) and 2) create a staking bucket within the staking contract.'
-my_stake.confirmation.auto_stake_tip: 'Your stake duration will remain ${count} days until you disable Auto-Stake.'
+my_stake.confirmation.auto_stake_tip: 'Your stake duration will remain ${count} days until you disable Stake-Lock.'
 my_stake.congrats_voter: 'And… Congratulations on becoming a <a href="/member/"><b style="color: #0b8de3;">Genesis Voter&#127881;</b></a>'
 my_stake.share_twitter: 'Share on Twitter'
 my_stake.epoch_day: 'Stake Duration (days)'
@@ -382,7 +382,7 @@ my_stake.addStakingAmount: '# of tokens to be added'
 my_stake.totalStaking: Total Amount
 my_stake.totalStakingAmount: '# of tokens voted in total'
 my_stake.add_staking.title: 'Add IOTX (native) to My Voting Bucket (ID ${bucketIndex})'
-my_stake.add_staking.desc: 'The newly added tokens will align with the current bucket settings including Delegate Name, the remaining stake/vote duration, auto-stake selection, etc.'
+my_stake.add_staking.desc: 'The newly added tokens will align with the current bucket settings including Delegate Name, the remaining stake/vote duration, Stake-Lock selection, etc.'
 my_stake.addStakingAmount.required: "Please enter an amount."
 my_votes.nativeStaking.open_ioPay_alert: "Make sure your ioPay desktop application is in opening state"
 my_votes.nativeStaking.open_ioPay_tip: 'If the page is loading for a long time, make sure that the ioPay desktop wallet is unlocked, then refresh the page.'
@@ -567,4 +567,4 @@ reclaim.click-to-sign: Click here to sign the message
 action.broadcasted: Broadcasted successfully! Please wait for a few seconds and refresh this page to see the result.
 button.remove.bucket: 'Remove Current Bucket No.${bucket}'
 my_stake.compound_modal.content: 'You may choose to automatically re-stake your staking rewards by defining a “compound interest bucket”. This bucket will receive all staking rewards (from Hermes Delegates only) to maximize compound interest for users.'
-my_stake.compound_modal.note: 'Note: your compound interest bucket must have Auto-stake ON.'
+my_stake.compound_modal.note: 'Note: your compound interest bucket must have Stake-Lock ON.'
