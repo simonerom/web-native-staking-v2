@@ -57,7 +57,9 @@ export const RestakeModal = connect(
     componentDidMount(): void {
       const now = new Date();
       let restakeDuration = 0;
-      if (this.props.stakeTime) {
+      if (this.props.nonDecay) {
+        restakeDuration = this.props.stakeDuration
+      } else if (this.props.stakeTime) {
         const lastDurationTime =
           (now.getTime() - this.props.stakeTime.getTime()) / (3600 * 24 * 1000);
         if (lastDurationTime < this.props.stakeDuration) {
