@@ -54,16 +54,17 @@ export const RestakeModal = connect(
       confirmLoading: false,
     };
 
+    restakeDuration = 0;
+
     componentDidMount(): void {
       const now = new Date();
-      let restakeDuration = 0;
       if (this.props.nonDecay) {
-        restakeDuration = this.props.stakeDuration
+        this.restakeDuration = this.props.stakeDuration
       } else if (this.props.stakeTime) {
         const lastDurationTime =
           (now.getTime() - this.props.stakeTime.getTime()) / (3600 * 24 * 1000);
         if (lastDurationTime < this.props.stakeDuration) {
-          restakeDuration = Math.ceil(
+          this.restakeDuration = Math.ceil(
             this.props.stakeDuration - lastDurationTime
           );
         }
@@ -71,7 +72,7 @@ export const RestakeModal = connect(
 
       this.setState({
         currentStakeAmount: this.props.stakedAmount,
-        currentStakeDuration: restakeDuration,
+        currentStakeDuration: this.restakeDuration,
       });
     }
 
@@ -183,7 +184,7 @@ export const RestakeModal = connect(
               {isAvailable && (
                 // @ts-ignore
                 <DurationFormItem
-                  initialValue={this.state.currentStakeDuration}
+                  initialValue={this.restakeDuration}
                   validatorFactory={validateStakeDuration}
                   formRef={this.formRef}
                   onChange={(n) => this.setState({ currentStakeDuration: n })}
