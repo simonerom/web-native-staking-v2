@@ -164,7 +164,7 @@ voting.progress-bar.circulating.supply: 流通
 voting.buy_iotx: '购买 IOTX'
 voting.metamask-reminder.content: '继续投票过程，请确保您已解锁MetaMask并链接到IoTeX。 <a target="_blank" href="https://support.iotex.io/hc/en-us/articles/360020614094">了解更多信息 </a>'
 voting.banner_title: 质押IOTX来帮助保护IoTeX网络
-voting.banner_content: 'IoTex 网络由 ${delegatesCount}  分散委托维护。通过投票选举节点，您可以参与网络治理并获得 IOTX 奖励！'
+voting.banner_content: 'IoTex 网络由 ${delegatesCount}  位全民节点维护。通过投票选举节点，您可以参与网络治理并获得 IOTX 奖励！'
 voting.banner_content.other_browser: 'IoTeX网络由${delegatesCount}去中心化节点进行维护。通过为您支持的节点投票，您可以参与网络治理并获得IOTX奖励！ <a href="https://community.iotex.io/t/how-to-stake-on-iotex-mainnet-ga/1245?from=from_parent_docs">如何进行抵押和投票- > </a>'
 voting.banner_content.modal: '随着  6 月 1 日上线的Mainnet GA "Machina" 版本， IoTex 现在是一个完全本地的区块链。选民将使用原生IOTX和ioPay（官方的IoTeX钱包）在IoTeX网络上进行质押和投票，而不是IOTX-E（以太坊）和Metamas</br></br> <span style="margin-left:10px">检查质押指令<a href="https://community.iotex.io/t/how-to-stake-on-iotex-mainnet-ga/1245">这里</a></span><br/><span style="margin-left:10px">下载iopay<a href="https://iopay.iotex.io/">这里</a></span>'
 voting.banner_content.modal.native_staking: 'ioPay 移动端已支持在app中进行质押，请使用app主页上的“质押”按钮开始操作。'
